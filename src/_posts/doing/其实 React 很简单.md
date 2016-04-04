@@ -1,14 +1,20 @@
 ---
-title:      "其实 React 很简单"
+layout:     post
+title:      其实 React 很简单
+subtitle:   ""
 date:       2016-04-04
 author:     "尹锋"
-github:     "https://github.com/ingf"
-
+tags:
+  - JavaScript
+  - React
 ---
+
+尹锋，Web 前端开发者，近期热爱 React 和 Redux 及其生态圈，github：https://github.com/ingf。
+
 
 我们先看看 Facebook 为什么发明 React。
 
-### 菜鸟养成营
+## 菜鸟养成营
 Facebook 很希望工程师在第一天就把所有的编程环境都设置好，在第一天就提交代码。这样可以在周二参与每周例行的代码发布活动，将代码同步到 Facebook 几十万台服务器中。Facebook 并不希望新人在第一天提交复杂的代码，基本都是很简单的改变；希望通过练手让工程师能迅速了解整个流程，迅速进入角色。但是这只是解决了工作流程问题，新人还是需要自己动手写代码的，所以菜鸟养成营还有下面两个问题。
 
 - 如何能让一帮刚从大学毕业的新兵蛋子，就可以上前线 Bug，或者开发新的 Feature
@@ -16,7 +22,7 @@ Facebook 很希望工程师在第一天就把所有的编程环境都设置好�
 
 这两点其实也是很多软件工程师所关注的，特别是在前端，近几年来，前端发展很快，都不用一年半就完全是另一个模样。React 号称能让新人第一天开始使用，就能开发新功能。那么他是怎么做到的呢？
 
-### 特性
+## 特性
 
 - 用 JSX 语法取代 HTML 模板，在 JavaScript 里声明式地描述 UI
 - 虚拟 DOM 取代物理 DOM 作为操作对象，封装了 DOM 的事件系统
@@ -27,7 +33,7 @@ Facebook 创造 JSX 语法，取代了我们常用的模板引擎，允许我们
 
 说道 DOM，这中间话题比较多，在很久以前，因为浏览器厂商很多，而他们中间又有一些比较特立独行，所以开发者体验并不是很好，这时候 jQuery 出来了。他在 DOM 之上做了一层封装，开发者调用 jQuery 的方法就好了。但是 Facebook 认为开发者直接操作 DOM 还不够好，所以他们搞了一个虚拟 DOM，开发者现在连 DOM 都不用操作了，它用一种更快的内置仿造的 DOM 来计算差异，为你计算出效率最高的 DOM 改变，然后自动去更新 DOM。而且还封装了事件系统，React 的高明之处就是这个事件系统对于开发者而言，并没有新的接口或者其他，一看就会，比 jQuery 还简单。
 
-### ReactDOM.render()
+## ReactDOM.render()
 
 ReactDOM.render 是 React 的最基本方法，用于将 JSX 转换成 HTML 语言，并插入指定的 DOM 节点。你可以将代码插入这个页面 [jsfiddle](http://jsfiddle.net/69z2wepo/24153/) 执行。
 
@@ -42,7 +48,7 @@ ReactDOM.render 是 React 的最基本方法，用于将 JSX 转换成 HTML 语�
         <h1 data-reactid=".0">Greeting, world!</h1>
     </div>
 
-### JSX 语法
+## JSX 语法
 众所周知，直接操作 DOM 存在不少问题，大家比较熟悉 jQuery，他在上层封装了很多操作，让开发者有了统一的开发体验。在这一点 React 和 jQuery 有点像，但是比 jQuery 高出一个等级，React 是不会让开发者去操作 DOM 的，除非不得不操作 DOM 。它用一种更快的内置仿造的 DOM 来计算差异，为你计算出效率最高的 DOM 改变，然后自动去更新 DOM。
 
 上一节的代码， HTML 语言直接写在 JavaScript 语言之中，不加任何引号，这就是 JSX 的语法，它允许 HTML 与 JavaScript 的混写。
@@ -70,7 +76,7 @@ ReactDOM.render 是 React 的最基本方法，用于将 JSX 转换成 HTML 语�
         </div>
     </div>
 
-### 组件
+## 组件
 
 所谓组件，就是状态机器。React 将用户界面看做简单的状态机器。当组件处于某个状态时，那么就输出这个状态对应的界面。通过这种方式，就很容易去保证界面的一致性。在 React 中，你简单的去更新某个组件的状态，然后输出基于新状态的整个界面。React 负责以最高效的方式去比较两个界面并更新 DOM 树。
 
@@ -103,7 +109,7 @@ React 允许将代码封装成组件（Component），然后像插入普通 HTML
 
 添加组件属性，有一个地方需要注意，就是 class 属性需要写成 className ，for 属性需要写成 htmlFor ，这是因为 class 和 for 是 JavaScript 的保留字。
 
-### 获取真实的DOM节点
+## 获取真实的DOM节点
 组件并不是真实的 DOM 节点，而是存在于内存之中的一种数据结构，叫做虚拟 DOM （virtual DOM）。只有当它插入文档以后，才会变成真实的 DOM 。根据 React 的设计，所有的 DOM 变动，都先在虚拟 DOM 上发生，然后再将实际发生变动的部分，反映在真实 DOM上，这种算法叫做 DOM diff ，它可以极大提高网页的性能表现。
 但是，有时需要从组件获取真实 DOM 的节点，这时就要用到 ref 属性。
 
@@ -134,7 +140,7 @@ React 允许将代码封装成组件（Component），然后像插入普通 HTML
 React 里只需把事件处理器（event handler）以骆峰命名（camelCased）形式当作组件的 props 传入即可，就像使用普通 HTML 那样。React 内部创建一套合成事件系统来使所有事件在 IE8 和以上浏览器表现一致。也就是说，React 知道如何冒泡和捕获事件，而且你的事件处理器接收到的 events 参数与 [W3C](http://www.w3.org/TR/DOM-Level-3-Events/) 规范一致，无论你使用哪种浏览器。
 其实，当 React 启动的时候，它在最外层使用唯一一个事件监听器处理所有事件。当组件被加载和卸载时，只是在内部映射里添加或删除事件处理器。当事件触发，React 根据映射来决定如何分发。
 
-### this.state
+## this.state
 
 React 把用户界面当作简单状态机。把用户界面想像成拥有不同状态然后渲染这些状态，可以轻松让用户界面和状态保持一致。
 React 里，只需调用 setState()来更新组件的 state，然后 React 根据新的 state 重新渲染用户界面（不要操作 DOM）。React 来决定如何最高效地更新 DOM。
@@ -173,7 +179,7 @@ React 里，只需调用 setState()来更新组件的 state，然后 React 根�
 
 由于 this.props 和 this.state 都用于描述组件的特性，可能会产生混淆。一个简单的区分方法是，this.props 表示那些一旦定义，就不再改变的特性，而 this.state 是会随着用户互动而产生变化的特性。
 
-### 组件的详细说明和生命周期
+## 组件的详细说明和生命周期
 
 组件的生命周期分成三个状态：
 
@@ -204,7 +210,7 @@ React 为每个状态都提供了两种处理函数，will 函数在进入状态
 - componentDidMount: 在组件第一次render之后调用，这时组件对应的DOM节点已被加入到浏览器。在这个方法里可以去实现一些初始化逻辑。
 - componentWillUnmount: 在DOM节点移除之后被调用，这里可以做一些相关的清理工作。
 
-### 组件化的开发思路
+## 组件化的开发思路
 
 虚拟 DOM 不仅带来了简单的 UI 开发逻辑，同时也带来了组件化开发的思想，所谓组件，即封装起来的具有独立功能的 UI 部件。React 推荐以组件的方式去重新思考 UI 构成，将 UI 上每一个功能相对独立的模块定义成组件，然后将小的组件通过组合或者嵌套的方式构成大的组件，最终完成整体 UI 的构建。例如，Facebook 的 [Instagram](http://instagram.com/) 整站都采用了 React 来开发，整个页面就是一个大的组件，其中包含了嵌套的大量其它组件，大家有兴趣可以看下它背后的代码。
 
@@ -354,11 +360,11 @@ Poster 稍微复杂一点。
 
 React 是一个全新思路的前端 UI 框架，它完全接管了 UI 开发中最为复杂的局部更新部分，擅长在在复杂场景下保证高性能；同时，它引入了基于组件的开发思想，从另一个角度来重新审视 UI 的构成。通过这种方法，不仅能够提高开发效率，而且可以让代码更容易理解，维护和测试。
 
-### 工具
+## 工具
 
 [React Developer Tools](https://github.com/facebook/react-devtools)
 
-### 编写可预测，符合习惯的代码
+## 编写可预测，符合习惯的代码
 
 所谓可预测（predictable），即容易理解的代码。我们上面已经说了很多了，为什么这里还要加一节呢？其实我是想问大家一个问题，大家觉得 React 最大的价值究竟什么？
 
@@ -387,7 +393,7 @@ JSX？
 
 是不是很简单，返璞归真，任何以为了解过前端的同学都能看懂这段代码，同时也能写出这样的代码！UNIX 的发明者里奇设定了 UNIX 的设计原则为 Keep it simple & stupid（大道至简）。
 
-### 将来
+## 将来
 
 至此，React 的基本点都已经提到了，但是社区还有大量的知识点需要学习，比如react-router, react-hot-reload, Redux 或者 Flux 的 N 种实现，CSS in JS 及其 N 种实现，Immutable-js，webpack...
 

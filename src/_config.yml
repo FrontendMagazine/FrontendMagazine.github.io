@@ -18,7 +18,8 @@ author_list: [
   李凌豪,
   黄玄,
   MrSunny,
-  追客
+  追客,
+  尹锋
 ]
 
 authors:
@@ -131,6 +132,17 @@ authors:
     position: 前端魔法师
     github: DrakeLeung
     weibo:  DrakeLeung
+  尹锋:
+    name: 尹锋
+    display_name: 尹锋
+    avatar: /images/avatars/inf.png
+    email: ingf.ivan@gmail.com
+    web: https://github.com/ingf/ingf.github.io/issues
+    twitter: 
+    company: 微信电影票
+    position: 前端工程师
+    github: ingf
+    weibo: 
 
 
 # SNS settings
