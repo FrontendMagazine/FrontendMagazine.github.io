@@ -1,29 +1,20 @@
-## React Tutorial
+---
+title:      "其实 React 很简单"
+date:       2016-04-04
+author:     "尹锋"
+github:     "https://github.com/ingf"
 
-### 为什么是 React
+---
 
-React 来自于 Facebook，是的，就是那个你们听说过但是打不开的网站。
-React 能做什么呢，能做这么多
+我们先看看 Facebook 为什么发明 React。
 
-- Web: [https://facebook.github.io/react/](https://facebook.github.io/react/)
-- Native: [https://facebook.github.io/react-native/](https://facebook.github.io/react-native/)
-- TV: [https://github.com/jordanbyron/react-native/tree/tvOS](https://github.com/jordanbyron/react-native/tree/tvOS)
-- Desktop: [https://github.com/ptmt/react-native-desktop](https://github.com/ptmt/react-native-desktop)
-- ...
-
-所以，Facebook 在推出 React Native 的时候，放出的口号是，learn once, write anywhere。
-
-几乎每个大公司都有一个“运行时间长，维护的工程师换了一批又一批”的项目。Amazon 曾经有个工程师描述维护这种项目的感觉：“climb the shit mountain”。
-React 的项目经理 Tom Occhino在 [F8](https://www.youtube.com/watch?v=nYkdrAPrdcw)表示，他们遇到了一些类似的问题。
-
-#### 菜鸟养成营
+### 菜鸟养成营
 Facebook 很希望工程师在第一天就把所有的编程环境都设置好，在第一天就提交代码。这样可以在周二参与每周例行的代码发布活动，将代码同步到 Facebook 几十万台服务器中。Facebook 并不希望新人在第一天提交复杂的代码，基本都是很简单的改变；希望通过练手让工程师能迅速了解整个流程，迅速进入角色。但是这只是解决了工作流程问题，新人还是需要自己动手写代码的，所以菜鸟养成营还有下面两个问题。
 
 - 如何能让一帮刚从大学毕业的新兵蛋子，就可以上前线 Bug，或者开发新的 Feature
 - 如何保证 Facebook 的各种背景的牛逼闪闪的全栈工程师写出来的前端代码不会随着时间消逝而快速腐烂
 
-这两点其实也是很多软件工程师所关注的，特别是在前端，近几年来，前端发展很快，都不用一年半就完全是另一个模样。
-React 号称能让新人第一天开始使用，就能开发新功能。那么他是怎么做到的呢？
+这两点其实也是很多软件工程师所关注的，特别是在前端，近几年来，前端发展很快，都不用一年半就完全是另一个模样。React 号称能让新人第一天开始使用，就能开发新功能。那么他是怎么做到的呢？
 
 ### 特性
 
@@ -34,11 +25,11 @@ React 号称能让新人第一天开始使用，就能开发新功能。那么�
 
 Facebook 创造 JSX 语法，取代了我们常用的模板引擎，允许我们可以直接在 js 文件中来使用 JSX，这种语法结合了 HTML 和 JavaScript 的优势，既能像平常一样使用 HTML，同时又能在 HTML 中使用强大的 JavaScript 语言。相当于我们可以把 View 和 JavaScript 逻辑写在同一个文件里面。
 
-说道 DOM，这中间话题比较多，在很久以前，因为浏览器厂商很多，而他们中间又有一些比较特立独行，所以开发者体验并不是很好，这时候 jQuery 站出来了。他在 DOM 之上做了一层封装，开发者调用 jQuery 的方法就好了。但是 Facebook 认为开发者直接操作 DOM 还不够好，所以他们搞了一个虚拟 DOM，开发者现在连 DOM 都不用操作了，它用一种更快的内置仿造的 DOM 来计算差异，为你计算出效率最高的 DOM 改变，然后自动去更新 DOM。而且还封装了事件系统，React 的高明之处就是这个事件系统对于开发者而言，并没有新的接口或者其他，一看就会，比 jQuery 还简单。
+说道 DOM，这中间话题比较多，在很久以前，因为浏览器厂商很多，而他们中间又有一些比较特立独行，所以开发者体验并不是很好，这时候 jQuery 出来了。他在 DOM 之上做了一层封装，开发者调用 jQuery 的方法就好了。但是 Facebook 认为开发者直接操作 DOM 还不够好，所以他们搞了一个虚拟 DOM，开发者现在连 DOM 都不用操作了，它用一种更快的内置仿造的 DOM 来计算差异，为你计算出效率最高的 DOM 改变，然后自动去更新 DOM。而且还封装了事件系统，React 的高明之处就是这个事件系统对于开发者而言，并没有新的接口或者其他，一看就会，比 jQuery 还简单。
 
 ### ReactDOM.render()
 
-ReactDOM.render 是 React 的最基本方法，用于将➜转换成 HTML 语言，并插入指定的 DOM 节点。代码可以在 [pepper](https://www.npmjs.com/package/we-pepper) 里面执行，也可以使用项目里面的 [index.html](index.html)，这个测试页面也被放到了 [jsfiddle](http://jsfiddle.net/69z2wepo/24153/) 上面，建议新手使用本地的 index.html。
+ReactDOM.render 是 React 的最基本方法，用于将 JSX 转换成 HTML 语言，并插入指定的 DOM 节点。你可以将代码插入这个页面 [jsfiddle](http://jsfiddle.net/69z2wepo/24153/) 执行。
 
     ReactDOM.render(
         <h1>Greeting, world!</h1>,
@@ -83,7 +74,7 @@ ReactDOM.render 是 React 的最基本方法，用于将➜转换成 HTML 语言
 
 所谓组件，就是状态机器。React 将用户界面看做简单的状态机器。当组件处于某个状态时，那么就输出这个状态对应的界面。通过这种方式，就很容易去保证界面的一致性。在 React 中，你简单的去更新某个组件的状态，然后输出基于新状态的整个界面。React 负责以最高效的方式去比较两个界面并更新 DOM 树。
 
-React 允许将代码封装成组件（component），然后像插入普通 HTML 标签一样，在网页中插入这个组件。React.createClass 方法就用于生成一个组件类。
+React 允许将代码封装成组件（Component），然后像插入普通 HTML 标签一样，在网页中插入这个组件。React.createClass 方法就用于生成一个组件类。
 
     var Details = React.createClass({
         render: function() {
@@ -108,7 +99,7 @@ React 允许将代码封装成组件（component），然后像插入普通 HTML
         </div>
     </div>
 
-所有的组件都必须实现 render 方法，我们先回顾一下模板引擎，基本都是返回字符串，然后在数据编进去，替换掉里面的变量，然后在把这段 HTML 片段 append 到 document 中。而 React 的 render 方法不是返回字符串， 是返回 view 的描述，是一颗 React 组件树，这棵树最终将会渲染成 HTML，render 方法是一个 pure function，就是说只负责纯粹的渲染逻辑，不涉及具体的业务逻辑和其他其他事情，这样可以使服务器端渲染更加切实可行，也使组件更容易被理解。
+所有的组件都必须实现 render 方法，我们先回顾一下模板引擎，基本都是返回字符串，然后在数据填充进去，替换掉里面的变量，然后在把这段 HTML 片段 append 到 document 中。而 React 的 render 方法不是返回字符串， 是返回 view 的描述，是一颗 React 组件树，这棵树最终将会渲染成 HTML，render 方法是一个 pure function，就是说只负责纯粹的渲染逻辑，不涉及具体的业务逻辑和其他其他事情，这样可以使服务器端渲染更加切实可行，也使组件更容易被理解。
 
 添加组件属性，有一个地方需要注意，就是 class 属性需要写成 className ，for 属性需要写成 htmlFor ，这是因为 class 和 for 是 JavaScript 的保留字。
 
@@ -219,7 +210,7 @@ React 为每个状态都提供了两种处理函数，will 函数在进入状态
 
 如果说 MVC 的思想让你做到视图-数据-控制器的分离，那么组件化的思考方式则是带来了 UI 功能模块之间的分离。
 
-对于 MVC 开发模式来说，开发者将三者定义成不同的类，实现了表现，数据，控制的分离，开发者更多的是从技术的角度来对 UI 进行拆分，实现松耦合。对于 React 而言，则完全是一个新的思路，开发者从功能的角度出发，将 UI 分成不同的组件，每个组件都独立封装。组件的封装方式和单向数据流动能够极大地简化前端架构的理解难度。下面我们通过组件化的思路来构建我们的电影详情页（为了 DEMO，请原谅我把产品原型修改的这么丑）。
+对于 MVC 开发模式来说，开发者将三者定义成不同的类，实现了表现，数据，控制的分离，开发者更多的是从技术的角度来对 UI 进行拆分，实现松耦合。对于 React 而言，则完全是一个新的思路，开发者从功能的角度出发，将 UI 分成不同的组件，每个组件都独立封装。组件的封装方式和单向数据流动能够极大地简化前端架构的理解难度。下面我们通过组件化的思路来构建一个电影详情页（为了 DEMO，请原谅我把产品原型修改的这么丑）。
 
 ![detail](https://cloud.githubusercontent.com/assets/3368034/12441242/f226df4a-bf7f-11e5-9a97-d68c9ba7cd94.png)
 
@@ -378,7 +369,7 @@ JSX？
 
 尽管这些都足以重要，但是 Tom Occhino 指出 React 最有价值的是声明式的，直观的编程方式。
 
-软件工程想来不提倡高深莫测的技巧、复杂的算法去编程，相反，如何写出可理解可阅读可预测的代码才是质量和效率的关键。
+软件工程向来不提倡高深莫测的技巧、复杂的算法去编程，相反，如何写出可理解可阅读可预测的代码才是质量和效率的关键。
 
 前面这种绑定事件的方式是不是很熟悉，因为上世纪90年代就是这么做的：
 
@@ -398,6 +389,6 @@ JSX？
 
 ### 将来
 
-至此，React 的基本点都讲完了，但是社区还有大量的知识点需要学习，比如react-router, react-hot-reload, Redux 或者 Flux 的 N 种实现，CSS in JS 及其 N 种实现，Immutable-js，webpack...
+至此，React 的基本点都已经提到了，但是社区还有大量的知识点需要学习，比如react-router, react-hot-reload, Redux 或者 Flux 的 N 种实现，CSS in JS 及其 N 种实现，Immutable-js，webpack...
 
-虽然有点多，但是每项都可以学出来装逼用，而且目前大家不用担心，因为大部分我们都已经打包到 [pepper](https://www.npmjs.com/package/we-pepper) 里面了。在后面的分享里面我们会逐步深入进去，欢迎大家关注这个项目，有任何问题都可以在 gitlab 里面提 issue，然后欢迎所有同学都可以一起来分享在 React 上的一些事情。
+虽然有点多，但是每个都很好玩，真的。
