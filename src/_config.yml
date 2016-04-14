@@ -176,7 +176,17 @@ authors:
     position: 学生
     github: Brooooooklyn
     weibo: 2633406351
-
+  hulufei:
+    name: hulufei
+    display_name: hulufei
+    avatar: /images/avatars/hulufei.jpg
+    email: ihulufei@icloud.com
+    web:
+    twitter:
+    company: Coding.net
+    position: Frontend Engineer
+    github: hulufei
+    weibo:
 
 # SNS settings
 RSS: true
