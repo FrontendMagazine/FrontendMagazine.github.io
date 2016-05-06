@@ -199,6 +199,29 @@ authors:
     position: 高级研发工程师
     github: gaohailang
     weibo: 1siva
+  Will_Wen_Gunn:
+    name: Will_Wen_Gunn
+    display_name: 小问
+    avatar: /images/avatars/xiaowen.jpg
+    email: willwengunn@gmail.com
+    web:
+    twitter:
+    company:
+    position:
+    github:
+    weibo:
+Cycle Sun:
+  name: Cycle Sun
+  display_name: Cycle Sun
+  avatar: /images/avatars/CycleSun.jpg
+  email: vista5004@gmail.com
+  web: http://www.jianshu.com/users/c84a55462fdf/latest_articles
+  twitter: 勤快东元
+  company: 不值一提
+  position: 前端工程师
+  github: vista5004
+  weibo: http://weibo.com/u/2242562485/home?wvr=5&lf=reg
+	
 
 # SNS settings
 RSS: true
@@ -256,7 +279,7 @@ sidebar-avatar: /images/wechat-qrcode.jpg      # use absolute URL, seeing it's u
 
 # Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+featured-condition-size: 2              # A tag will be featured if the size of it is more than this condition value
 
 
 

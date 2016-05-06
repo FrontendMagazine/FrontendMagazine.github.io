@@ -452,20 +452,36 @@ pre code{
 // Post Preview Pages (Home Page)
 
 .post-preview {
-	> a {
+	.post-header-img {
+		height: 200px;
+		margin-top: 20px;
+		border-radius: 5px;
+		background-size: cover;
+		background-position: center;
+	}
+	.author-avatar {
+		height: 24px;
+		width: 24px;
+		border-radius: 50%;
+		vertical-align: middle;
+		background-size: cover;
+		display: inline-block;
+	}
+	a {
+		display: block;
 		color: @gray-dark;
 		&:hover,
 		&:focus {
 			text-decoration: none;
 			color: @brand-primary;
 		}
-		> .post-title {
+		.post-title {
 			font-size: 21px;
 			line-height: 1.3;
 			margin-top: 30px;
 			margin-bottom: 8px;
 		}
-		> .post-subtitle {
+		.post-subtitle {
 			font-size: 15px;
 			line-height: 1.3;
 			margin: 0;
@@ -473,12 +489,12 @@ pre code{
 			margin-bottom: 10px;
 		}
 	}
-	> .post-meta {
+	.post-meta {
 		.serif;
 		color: @gray;
 		font-style: italic;
 		margin-top: 0;
-		> a {
+		a {
 			text-decoration: none;
 			color: @gray-dark;
 			&:hover,
@@ -489,13 +505,25 @@ pre code{
 		}
 	}
 	@media only screen and (min-width: 768px) {
-		> a {
-			> .post-title {
+		& {
+			position: relative;
+			padding-left: 40%;
+		}
+		.post-header-img {
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 38%;
+			margin-top: 0;
+		}
+		a {
+			.post-title {
 				font-size: 26px;
 				line-height: 1.3;
 				margin-bottom: 10px;
 			}
-			> .post-subtitle{
+			.post-subtitle{
 				font-size: 16px;
 			}
 		}

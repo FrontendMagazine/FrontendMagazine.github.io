@@ -5,26 +5,30 @@ description: "关注前端前沿技术，探寻业界深邃思想"
 
 {% for post in paginator.posts %}
 <div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">
-            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-        <div class="post-content-preview">
-            {{ post.content | strip_html | truncate:200 }}
-        </div>
-    </a>
-    <p class="post-meta">
+  <a href="{{ post.url | prepend: site.baseurl }}">
+    <div class="post-header-img" style="background-image: url('{{ site.baseurl }}{{ post.header-img }}')"></div>
+    <div class="post-summary">
+          <h2 class="post-title">
+              {{ post.title }}
+          </h2>
+          {% if post.subtitle %}
+          <h3 class="post-subtitle">
+              {{ post.subtitle }}
+          </h3>
+          {% endif %}
+          <div class="post-content-preview">
+              {{ post.content | strip_html | truncate:200 }}
+          </div>
+      <p class="post-meta">
         {% assign author = site.authors[post.author] %}
         {% if author %}
+        <div class="author-avatar" style="background-image:url({{author.avatar}})"></div>
         <span class="post-author">{{ author.display_name }} · </span>
         {% endif %}
-        <span class="post-data">{{ post.date | date: "%Y年%m月%d日" }}</span>
-    </p>
+          <span class="post-data">{{ post.date | date: "%Y年%m月%d日" }}</span>
+      </p>
+    </div>
+  </a>
 </div>
 <hr>
 {% endfor %}
