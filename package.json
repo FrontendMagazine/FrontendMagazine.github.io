@@ -19,6 +19,7 @@
     "gulp-qiniu": "^0.2.3",
     "gulp-rev-all": "^0.8.24",
     "gulp-scp": "0.0.3",
+    "gulp-scp2": "^0.2.0",
     "gulp-uglify": "^1.5.3"
   },
   "repository": {
