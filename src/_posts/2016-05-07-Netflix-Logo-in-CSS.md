@@ -2,7 +2,7 @@
 layout:     post
 title:      "用 CSS 实现 Netflix Logo 动画"
 subtitle:   ""
-date:       2016-04-29
+date:       2016-05-07
 author:     "Cycle Sun"
 header-img: "/images/netflix-logo-in-css/css3.png"
 tags:
@@ -12,17 +12,15 @@ tags:
 
 > 本文译自：[Netflix Logo In CSS](https://link.zhihu.com/?target=http%3A//hugogiraudel.com/2015/04/15/netflix-logo-in-css/%23first-concept)
 
-
-
 这篇博客是 Gregor Adams 讲他如何用 CSS 重现 Netflix 商标效果。Gregor 是 CSS 方面冉冉升起的新星。能在这里分析他的案例也是非常荣幸的。
 
 
 
 我尝试使用 Netflix（译者注：一家在线影片租赁提供商）时，立即就把我吸引住了。我观看了一些不得不在它处才能观看的节目。每一集电视剧或者电影都以 Netflix 动画作为开始。
 
-![](../images/netflix-logo-in-css/1.gif)
+![](/images/netflix-logo-in-css/1.gif)
 
-在观看了几集电视剧之后，我想到可以用 CSS 来实现 Netflix 的 logo 动画，于是我看了几部作品之后，就用 [ CodePen**](https://link.zhihu.com/?target=http%3A//codepen.io/pixelass/) 来重现这个 logo。
+在观看了几集电视剧之后，我想到可以用 CSS 来实现 Netflix 的 logo 动画，于是我看了几部作品之后，就用 [ CodePen](https://link.zhihu.com/?target=http%3A//codepen.io/pixelass/) 来重现这个 logo。
 
 
 
@@ -58,13 +56,13 @@ tags:
 
 ```html
 <div class="logo">
-    <span>N</span>
-    <span>E</span>
-    <span>T</span>
-    <span>F</span>
-    <span>L</span>
-    <span>I</span>
-    <span>X</span>
+  <span>N</span>
+  <span>E</span>
+  <span>T</span>
+  <span>F</span>
+  <span>L</span>
+  <span>I</span>
+  <span>X</span>
 </div>
 ```
 
@@ -97,12 +95,12 @@ span {
 
 下面是在 CodePen 实现的小例子：（译者注：原 demo 是页面中嵌入的 iframe 实现嵌入 CodePen ，但是 markdown 没有嵌入 iframe 的方法，所以采用 CodePen 来展示，并且把原 demo 的 jade 和 scss 写法转换成 html 和 css 方便没有使用过两种技术的读者阅读）
 
-- 使用 jade 和 scss 完成的 [demo**](https://link.zhihu.com/?target=http%3A//codepen.io/pixelass/embed/raEojV%3Fheight%3D446%26theme-id%3D0%26slug-hash%3DraEojV%26default-tab%3Dresult%26user%3Dpixelass%230)
-- 转换成 html 和 css 完成的 [demo**](https://link.zhihu.com/?target=http%3A//codepen.io/doculecycle/pen/reoaRw)
+- 使用 jade 和 scss 完成的 [demo](https://link.zhihu.com/?target=http%3A//codepen.io/pixelass/embed/raEojV%3Fheight%3D446%26theme-id%3D0%26slug-hash%3DraEojV%26default-tab%3Dresult%26user%3Dpixelass%230)
+- 转换成 html 和 css 完成的 [demo](https://link.zhihu.com/?target=http%3A//codepen.io/doculecycle/pen/reoaRw)
 
 实际效果
 
-![](../images/netflix-logo-in-css/2.PNG)
+![](/images/netflix-logo-in-css/2.PNG)
 
 
 
@@ -209,13 +207,13 @@ Sass 代码：
 
 实际效果：
 
-![](../images/netflix-logo-in-css/3.PNG)
+![](/images/netflix-logo-in-css/3.PNG)
 
 ## 一个用于阴影的函数
 
 写一个实现 3d 效果和阴影的函数。我把视频停在某一帧，并仔细查看细节。
 
-![](../images/netflix-logo-in-css/4.PNG)
+![](/images/netflix-logo-in-css/4.PNG)
 
 
 
@@ -231,7 +229,7 @@ Sass 代码：
 
 我们还需要一个参数来定义阴影的深度或者 3d 效果。
 
-![](../images/netflix-logo-in-css/5.PNG)
+![](/images/netflix-logo-in-css/5.PNG)
 
 下面就是用来处理这些需求的函数：
 
@@ -275,7 +273,7 @@ $shadow: ();
 
 每一次迭代我都添加一个 text-shadow 到这个列表。所以最后这个列表看起来就是下面这个样子：
 
-```scs
+```scss
 $shadow: (0 1px 0 red, 1px 2px 0 red, 2px 3px 0 red, ...);
 ```
 
@@ -294,7 +292,7 @@ $x,$y,$blur 和 $mix 都是可选的参数。我已经提到我将会在 keyfram
 
 实际效果：
 
-![](../images/netflix-logo-in-css/6.PNG)
+![](/images/netflix-logo-in-css/6.PNG)
 
 
 
