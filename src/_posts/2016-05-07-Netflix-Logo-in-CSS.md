@@ -3,7 +3,7 @@ layout:     post
 title:      "用 CSS 实现 Netflix Logo 动画"
 subtitle:   ""
 date:       2016-05-07
-author:     "Cycle Sun"
+author:     "Cycle_Sun"
 header-img: "/images/netflix-logo-in-css/css3.png"
 tags:
   - CSS
@@ -54,7 +54,7 @@ tags:
 
 以这个词 “Netflix” 的一些基本标记开始。
 
-```html
+{% highlight html %}
 <div class="logo">
   <span>N</span>
   <span>E</span>
@@ -64,30 +64,30 @@ tags:
   <span>I</span>
   <span>X</span>
 </div>
-```
+{% endhighlight %}
 
 我用类 logo 做了一个包裹，并且用 span 标签包裹每一个字母。
 
 然后我在Y轴上旋转这个字母并且在 X 轴上缩放这个字母以保持它的原始宽度。重要的部分是在 class="logo" 包装上设置一个 perspective ，并且定义它的 perspective-origin 。
 
-```css
-// 基础的字母样式
+{% highlight css %}
+/* 基础的字母样式 */
 span {
     font-size: 8em;
     font-family: impact;
     display: block;
 }
-// 开启三维效果
+/* 开启三维效果 */
 .logo {
     perspective: 1000px;
     perspective-origin: 50% 0;
 }
-//给字母变换
+/* 给字母变换 */
 .logo span {
     transform-origin: 0 0;
     transform: scaleX(80) rotateY(89.5deg);
 }
-```
+{% endhighlight %}
 
 
 
@@ -100,7 +100,7 @@ span {
 
 实际效果
 
-![](/images/netflix-logo-in-css/2.PNG)
+![](/images/netflix-logo-in-css/2.png)
 
 
 
@@ -110,7 +110,7 @@ span {
 
 Sass 代码：
 
-```scss
+{% highlight scss %}
 .logo {
   perspective: 1000px;
   perspective-origin: 50% 0;
@@ -139,18 +139,13 @@ Sass 代码：
     }
   }
 }
-```
+{% endhighlight %}
 
 
 
 为了方便不懂 scss 同学理解，这是我编译后的 css 代码：
 
-```css
-作者：Cycle Sun
-链接：https://zhuanlan.zhihu.com/p/20858727
-来源：知乎
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
+{% highlight css %}
 .logo {
    perspective: 1000px;
    perspective-origin: 50% 0;
@@ -196,7 +191,7 @@ Sass 代码：
    font-size: 1.035em;
    transform: scale(65.9, 1) rotatey(-89.5deg);
 }
-```
+{% endhighlight %}
 
 
 
@@ -207,13 +202,13 @@ Sass 代码：
 
 实际效果：
 
-![](/images/netflix-logo-in-css/3.PNG)
+![](/images/netflix-logo-in-css/3.png)
 
 ## 一个用于阴影的函数
 
 写一个实现 3d 效果和阴影的函数。我把视频停在某一帧，并仔细查看细节。
 
-![](/images/netflix-logo-in-css/4.PNG)
+![](/images/netflix-logo-in-css/4.png)
 
 
 
@@ -229,11 +224,11 @@ Sass 代码：
 
 我们还需要一个参数来定义阴影的深度或者 3d 效果。
 
-![](/images/netflix-logo-in-css/5.PNG)
+![](/images/netflix-logo-in-css/5.png)
 
 下面就是用来处理这些需求的函数：
 
-```scss
+{% highlight scss %}
 /// 在特定方向创创建三维阴影
 /// @author Gregor Adams
 /// @param  {Number}        $depth - 阴影长度
@@ -256,15 +251,15 @@ Sass 代码：
   }
   @return $shadow;
 }
-```
+{% endhighlight %}
 
 这个函数对于 Sass 菜鸟或者只使用基本语言特性的开发者和设计师来说可能有点难理解，所以让我来详细解释一下。
 
 我以一个 $shadow 的变量开始， list 是一个空的列表。
 
-```scss
+{% highlight scss %}
 $shadow: ();
-```
+{% endhighlight %}
 
 我是从1开始循环到 $depth 。在 Sass 中会使迭代器迭代到 through 这个值。
 
@@ -273,15 +268,15 @@ $shadow: ();
 
 每一次迭代我都添加一个 text-shadow 到这个列表。所以最后这个列表看起来就是下面这个样子：
 
-```scss
+{% highlight scss %}
 $shadow: (0 1px 0 red, 1px 2px 0 red, 2px 3px 0 red, ...);
-```
+{% endhighlight %}
 
 使用的时候就像下面这样：
 
-```scss
+{% highlight scss %}
 text-shadow: d3(5, red, [$x], [$y], [$blur], [$mix]);
-```
+{% endhighlight %}
 
 $x,$y,$blur 和 $mix 都是可选的参数。我已经提到我将会在 keyframes 中调用这个函数，所以我需要可选择性地改变他们。 $mix 允许添加第二个颜色，实现这个阴影从一种颜色淡出成另外一种颜色。
 
@@ -292,7 +287,7 @@ $x,$y,$blur 和 $mix 都是可选的参数。我已经提到我将会在 keyfram
 
 实际效果：
 
-![](/images/netflix-logo-in-css/6.PNG)
+![](/images/netflix-logo-in-css/6.png)
 
 
 
@@ -304,7 +299,7 @@ $x,$y,$blur 和 $mix 都是可选的参数。我已经提到我将会在 keyfram
 
 我使用两个上面已经定义的变量 $offset 和 $trans ，动画有三个阶段，我需要仔细地决定何时到达某帧。
 
-```scss
+{% highlight scss %}
 @keyframes pop-out {
   0% {
     transform:
@@ -331,13 +326,13 @@ $x,$y,$blur 和 $mix 都是可选的参数。我已经提到我将会在 keyfram
       d3(50, $c_shadow, 1px, 3px, 3px, $c_shadow-mix);
   }
 }
-```
+{% endhighlight %}
 
 
 
 **2. 淡出（动画结尾）**同样的步骤实现淡出的效果。
 
-```scss
+{% highlight scss %}
 @keyframes fade-back {
   0% {
     transform:
@@ -364,13 +359,13 @@ $x,$y,$blur 和 $mix 都是可选的参数。我已经提到我将会在 keyfram
       d3(50, rgba($c_shadow, 0), 0, 0);
   }
 }
-```
+{% endhighlight %}
 
 **3. 改变字体颜色**
 
 还需要提供一个动画改变字体颜色。
 
-```scss
+{% highlight scss %}
 @keyframes change-color {
   0% {
     color: $c_bg;
@@ -379,19 +374,19 @@ $x,$y,$blur 和 $mix 都是可选的参数。我已经提到我将会在 keyfram
     color: $c_fg;
   }
 }
-```
+{% endhighlight %}
 
 **4. 触发这个动画**
 
 现在我们可以像下面这样把动画连接在一起。
 
-```scss
+{% highlight scss %}
 animation-name: pop-out, fade-back, change-color;
 animation-duration: 4s, 2s, 0.1s;
 animation-delay: 0s, 2s, 3.2s
-```
+{% endhighlight %}
 
-上面的代码只是一个近似的实现，每个字母有不同的动画延迟和间隔，可以点击[这里**](https://link.zhihu.com/?target=http%3A//codepen.io/pixelass/pen/MYYReK)查看最终的实现效果。
+上面的代码只是一个近似的实现，每个字母有不同的动画延迟和间隔，可以点击[这里](https://link.zhihu.com/?target=http%3A//codepen.io/pixelass/pen/MYYReK)查看最终的实现效果。
 
 最后注意一下，我使用了一些不可思议的技巧来实现在纯 CSS 中再次触发动画，我将会在接下来的文章中解释。
 
