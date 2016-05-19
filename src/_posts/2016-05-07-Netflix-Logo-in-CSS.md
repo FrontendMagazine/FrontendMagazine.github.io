@@ -7,6 +7,7 @@ author:     "Cycle_Sun"
 header-img: "/images/netflix-logo-in-css/css3.png"
 tags:
   - CSS
+  - CSS3
   - SCSS
 ---
 

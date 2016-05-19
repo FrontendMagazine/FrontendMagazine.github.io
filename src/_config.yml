@@ -220,8 +220,7 @@ authors:
     company: 不值一提
     position: 前端工程师
     github: vista5004
-    weibo: http://weibo.com/u/2242562485
-
+    weibo: http://weibo.com/u/2242562485/home?wvr=5&lf=reg
 
 # SNS settings
 RSS: true
@@ -244,7 +243,6 @@ anchorjs: true                          # if you want to customize anchor. check
 # replace redcarpet to kramdown,
 # although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
 # document: http://jekyllrb.com/docs/configuration/#kramdown
-#markdown: kramdown
 markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
