@@ -48,7 +48,7 @@ authors:
     weibo: fanhc019
   kmokidd:
     name: kmokidd
-    display_name: 何语萱
+    display_name: kmokidd
     avatar: /images/avatars/kmokidd.jpg
     email: kmokidd@gmail.com
     web:
@@ -210,18 +210,18 @@ authors:
     position:
     github:
     weibo:
-Cycle Sun:
-  name: Cycle Sun
-  display_name: Cycle Sun
-  avatar: /images/avatars/CycleSun.jpg
-  email: vista5004@gmail.com
-  web: http://www.jianshu.com/users/c84a55462fdf/latest_articles
-  twitter: 勤快东元
-  company: 不值一提
-  position: 前端工程师
-  github: vista5004
-  weibo: http://weibo.com/u/2242562485/home?wvr=5&lf=reg
-	
+  Cycle_Sun:
+    name: Cycle Sun
+    display_name: Cycle Sun
+    avatar: /images/avatars/CycleSun.jpg
+    email: vista5004@gmail.com
+    web: http://www.jianshu.com/users/c84a55462fdf/latest_articles
+    twitter: 勤快东元
+    company: 不值一提
+    position: 前端工程师
+    github: vista5004
+    weibo: http://weibo.com/u/2242562485
+
 
 # SNS settings
 RSS: true
@@ -244,6 +244,7 @@ anchorjs: true                          # if you want to customize anchor. check
 # replace redcarpet to kramdown,
 # although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
 # document: http://jekyllrb.com/docs/configuration/#kramdown
+#markdown: kramdown
 markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
