@@ -58,9 +58,10 @@ layout: default
 
 				{{ content }}
 
-                <hr>
-
-                <img src="/images/wechat.png"/>
+                {% unless page.disableWechatQrCode %}
+                    <hr>
+                    <img src="/images/wechat.png"/>
+                {% endunless %}
 
                 {% if site.duoshuo_share && site.duoshuo_username %}
                 <!-- 多说 Share start -->
