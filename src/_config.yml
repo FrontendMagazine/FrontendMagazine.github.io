@@ -221,6 +221,17 @@ authors:
     position: 前端工程师
     github: vista5004
     weibo: http://weibo.com/u/2242562485/home?wvr=5&lf=reg
+  LeeChingYin:
+    name: LeeChingYin
+    display_name: LeeChingYin
+    avatar: /images/avatars/leechingyin.jpg
+    email: leechingyin09@gmail.com
+    web: http://www.jianshu.com/users/b17c044be6ce/latest_articles
+    twitter:
+    company: 泛智（广州）咨询服务有限公司
+    position: 前端开发工程师
+    github: LeeChingYin
+    weibo: http://weibo.com/leechingyin
 
 # SNS settings
 RSS: true
