@@ -10,7 +10,7 @@ tags:
   - WebRTC
 ---
 
-# 第二章 获取用户媒体
+> [《Learning WebRTC中文版》](https://book.douban.com/subject/26820574/)出版啦，外刊君是本书的翻译和审校阶段组织者。本文是该书的 **第2章：获取用户媒体**，欢迎试读。**获取本书的签名优惠版，见文末**。
 
 ## 获取用户媒体
 
@@ -31,7 +31,7 @@ tags:
  - 提供一个`stream`对象：这个对象用以表示音频或视频形式的实时媒体流。
  - 提供设备间切换的功能：当多个摄像头或麦克风连接到计算机上时，可以选择所需设备。
  - 提供充分的安全保障：获得用户的访问许可，根据偏好设置从用户的计算机设备捕获数据流。
- 
+
 在我们继续进行之前，需要提前准备好相应的编程环境。首先，要有一个可以编辑HTML和JavaScript的文本编辑器，凡是购买这本书的读者很可能已经有一个趁手的编辑器了。
 
 其次，你还需要一台服务器来托管HTML和JavaScript文件并提供伺服服务。浏览器的权限及安全限制要求：必须是通过真实服务器伺服的文件才可以连接用户的摄像头和麦克风。如果你在本地双击打开本书提供的代码，它将不会正常运行。
@@ -301,7 +301,7 @@ if (hasUserMedia()) {
   var video = document.querySelector('video'),
       canvas = document.querySelector('canvas'),
       streaming = false;
-  
+
   navigator.getUserMedia({
     video: true,
     audio: false
@@ -311,7 +311,7 @@ if (hasUserMedia()) {
   }, function (error) {
     console.log("Raised an error when capturing:", error);
   });
-  
+
   document.querySelector('#capture').addEventListener('click', function (event) {
     if (streaming) {
       canvas.width = video.clientWidth;
@@ -342,7 +342,7 @@ if (hasUserMedia()) {
     -o-filter: grayscale(1);
     filter: grayscale(1);
   }
-  
+
   .sepia {
     -webkit-filter: sepia(1);
     -moz-filter: sepia(1);
@@ -350,7 +350,7 @@ if (hasUserMedia()) {
     -o-filter: sepia(1);
     filter: sepia(1);
   }
-  
+
   .invert {
     -webkit-filter: invert(1);
     -moz-filter: invert(1);
@@ -425,3 +425,13 @@ Q5. `getUserMedia` API可以与Canvas API和CSS滤镜结合，给应用添加更
 
   [1]: http://nodejs.org/
   [2]: http://localhost:8080/
+
+
+该书已经在各大网上书店开卖了，[京东](http://item.jd.com/10414625241.html)，[当当网](http://product.dangdang.com/23982330.html)，[亚马逊](https://www.amazon.cn/Learning-WebRTC-%E4%B8%AD%E6%96%87%E7%89%88-Dan-Ristic/dp/B01H0LP99S/)；
+
+## 获取《Learning WebRTC中文版》签名优惠版
+
+- 原价65.00元，优惠价**49.00**元；
+- **外刊君**签名 + 你希望写上的一句话；
+- 支付方式：通过[知乎专栏](https://zhuanlan.zhihu.com/p/21428418)或者微信公众号文章的赞赏49.00元订购，通过微信公众号或者[外刊君](https://www.zhihu.com/people/stein.cun)私信沟通邮寄地址；
+- 多谢支持，欢迎订购！
