@@ -232,6 +232,17 @@ authors:
     position: 前端开发工程师
     github: LeeChingYin
     weibo: http://weibo.com/leechingyin
+  周林:
+    name: ZhouLin
+    display_name: eeandrew
+    avatar: /images/avatars/eeandrew.jpeg
+    email: boyzhoulin@sina.com
+    web: 
+    twitter:
+    company: 陆金所
+    position: 高级前端开发工程师
+    github: eeandrew
+    weibo: http://weibo.com/u/1260958294
 
 # SNS settings
 RSS: true
