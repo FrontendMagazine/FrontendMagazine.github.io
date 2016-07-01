@@ -1,5 +1,3 @@
-# 使用Nativescript和Angular2构建跨平台APP
-
 ## 前言
 “一次构建，多处运行”，跨平台APP带着这股风潮把火烧到了前端，为开发者带来无尽的遐想。现有的流行跨平台框架有以下:
 1. 基于单WebView的开发框架。开发者可以使用现有的最新web技术，开发出单页面web应用。同时利用JSBridge，又能获取原生的API，从而使web应用具有了原生应用的功能。Cordova+IONIC可以说是这个潮流的代表，也是跨平台APP的先锋。然而这类跨平台应用的缺点是不流畅，在安卓手机上体验较差。
@@ -9,6 +7,13 @@
 和ReactNative相比，Nativescript最大的特点是可以获得100%的原生API。也就是说，开发者可以通过Javascript获取和原生开发语言同样多的原生接口。下面，我们通过实现一个简单的计算器，来体会一下Nativescript的开发思想。同时，我们能体会到“获取所有原生API”带来的巨大好处。
 你可以先在[这里](https://github.com/eeandrew/NSCalculator)看到最终的结果。 **注意输入的数字的字体会随着文本长度逐渐变小，想想这个功能怎么实现。**
 ![Nativescript计算器](http://upload-images.jianshu.io/upload_images/2362670-71faac7bd658d6ec.gif?imageMogr2/auto-orient/strip)
+
+## Why Nativescript?
+大家定会好奇，ReactNative这么火，大家都在谈论它，大有一统天下的感觉，为什么还要讨论Nativescript呢？这是因为ReactNative依然不能真正统一编程语言。ReactNative基于平台抽象，不可能暴露100%的原生API，因此需要使用原生编程语言进行扩展，提高了技术栈。所以，一个ReactNative的开发团队里面必须同时具备Javascript，Java还有ObjectiveC开发技术。
+相比之下，Nativescript的技术栈则要简单的多，开发者只需要使用Javascript就能进行开发。这里列出了几个Nativescript的核心功能：
+1. 使用Javascript直接访问**所有**原生API
+2. 系统新功能**0延时**支持
+3. 第三方原生库**全部**支持
 
 ## 准备
 首先需要搭建开发环境，请参考官方的[文档](http://docs.nativescript.org/angular/start/quick-setup)。你可以使用下面的命令来检测Nativescript是否安转完成:
@@ -62,8 +67,10 @@ export class AppComponent {
 
 和 `tns run ios`命令不同，这个命令会监视你的文件变化并自动构建部署新的应用。
 ![Nativescript布局](http://upload-images.jianshu.io/upload_images/2362670-1645aebdf38d5e23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-Nativescript的布局方式和安卓原生的布局方式非常类似。对于计算器，我们的Displayer需要一个固定的高度，Keyboard需要占据全部剩余的空间。因此，Calculator的第一级布局使用了[GridLayout](http://docs.nativescript.org/angular/ui/layout-containers)。rows="auto,*" 表示Gridlayout为两行，第一行高度由内容(auto)决定，第二行高度占据全部剩余空间(*)。columns="*"表示Gridlayout分为一列布局，这一列的宽度占据全部空间。
+Nativescript的布局方式和安卓原生的布局方式非常类似。对于计算器，我们的Displayer需要一个固定的高度，Keyboard需要占据全部剩余的空间。因此，Calculator的第一级布局使用了[GridLayout](http://docs.nativescript.org/angular/ui/layout-containers)。rows="auto,\*" 表示Gridlayout为两行，第一行高度由内容(auto)决定，第二行高度占据全部剩余空间(\*)。columns="*"表示Gridlayout分为一列布局，这一列的宽度占据全部空间。
 我们为Displayer选择了StackLayout布局，这是因为我们需要把Label靠右下角对齐。我们为Keyboard选择了GridLayout布局，这很好理解，因为我们需要一个5x4的格子用来放置计算器的按钮。
+熟悉ReactNative的同学可能知道，ReactNative使用Flex布局，非常便于web开发者掌握。Nativescript则使用和原生开发非常相似的布局方式，然而这种布局方式其实也很容易掌握。
+注意我们还使用了行内CSS来装饰Nativescript的组件。Nativescript支持的CSS属性是web CSS属性的一个子集。你可以在[这里](https://docs.nativescript.org/angular/ui/styling.html)看到Nativescript支持的CSS种类，总的来说，有限但是够用。
 ## 组件
 目前为止我们的APP只有一个组件AppComponent，这非常不利于项目的扩展。幸运的是Nativescript支持Angular2.0的全部功能，我们可以使用Angular来实现Displayer和Keyboard组件。
 在app目录下新建Keyboard文件夹，在Keyboard文件里新增keyboard.component.ts，keyboard.html，以及keyboard.css文件。内容如下：
@@ -179,12 +186,14 @@ export class Keyboard{
   font-size: 30;
 }
 ```
-应用界面并没有任何变化，我们还需要在app.component.ts中引入Keyboard组件。修改后的文件如下
+在Keyboard组件里，我们把HTML模板和CSS都拆分到了独立文件里面，又回到了那个干干净净的web世界。而这两者ReactNative都不能支持！所以在组件复用性和易用性上，Nativescript其实技高一筹。
+然而现在应用界面并没有任何变化，我们还需要在app.component.ts中引入Keyboard组件。修改后的app.component.ts文件如下
 ```
 //app.component.ts
 import {
     Component,
 } from "@angular/core";
+//引入外部组件
 import {
     Keyboard
 } from './Keyboard/keyboard.component';
@@ -197,11 +206,11 @@ import {
      <StackLayout row="0" style="font-size:60;color:#fff;height:120;background-color:rgba(0,0,0,0.8);text-align:right;vertical-align:bottom;">
       <Label text="99" ></Label>
      </StackLayout>
-     <!--Keyboard-->
+     <!--引入Keyboard组件-->
      <keyboard row="1"></keyboard>
     </GridLayout>
 `,
-directives:[Keyboard]
+directives:[Keyboard] //声明对Keyboard组件的依赖
 })
 export class AppComponent {
     public counter: string = '';
@@ -210,8 +219,10 @@ export class AppComponent {
 ```
 现在我们的计算器有点样子了：
 ![Keyboard组件](http://upload-images.jianshu.io/upload_images/2362670-6fcfd906bbabc690.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+似乎有点简单。但是请注意，这个界面是完全的**原生界面**，完全由原生组件构成。然而，由于Nativescript的支持，我们确可以像开发web应用一般轻松的开发原生应用了。
 但是现在的Keyboard还不能提供任何功能，Keyboard不能响应点击事件，也不能把数据传递给Displayer。接下来我们就要为Keyboard加上这些功能。
 ## 交互
+Nativescript提供了原生的[手势事件](https://docs.nativescript.org/angular/ui/gestures.html)，你可以在应用中直接使用。由于touch事件会返回手指的状态：向下，移动，向上等，满足键盘交互的需求，因此我们监听touch事件。
 要监听Keyboard的点击事件，最直观的答案就是为每个按钮设置touch事件监听器，在这个计算器应用中我们需要设置19次！而且我们的监听逻辑不能复用，虽然他们的功能很相似！这是不可接受的。所以，我们应该把按钮也做成一个Angular组件，因为组件是可以复用的。
 那么这个按钮组件需要哪些功能呢？ 当点击按钮时，按钮的背景色需要改变，并且需要把这个点击事件告知其他组件。
 在app目录下新建NSButton文件夹，同时在NSButton文件夹里新增一下文件: nsbutton.component.ts, nsbutton.css。
@@ -274,6 +285,7 @@ export class NSButton implements AfterViewInit{
   }
 }
 ```
+请注意，这里我们没有使用ngStyle的方式来改变按钮的背景，而是用了更底层一级的API。主要是为了像你展示在Nativescript中使用原生API是多么轻松的一件事。
 ```
 //nsbutton.css
 .keyboard-item {
@@ -484,14 +496,14 @@ export class Keyboard implements OnInit{
 ```
 //app.component.ts
 import {
-	Component,
-	OnInit,
-	ElementRef,
-	ViewChild,
-	AfterViewInit,
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
 } from "@angular/core";
 import {
-	Label
+  Label
 } from 'ui/label';
 import {
   Keyboard
@@ -502,49 +514,50 @@ import {
 } from 'platform';
 
 @Component({
-	selector: "calculator",
-	template: `
-			<GridLayout rows="auto,*" columns="*">
-			<!--Dispalyer-->
-			<StackLayout row="0" style="font-size:60;color:#fff;height:120;background-color:rgba(0,0,0,0.8);text-align:right;vertical-align:bottom;">
-				<Label [text]="counter" #displayer></Label>
-			</StackLayout>
-			<!--Keyboard-->
-			<keyboard row="1" [onKeyBoardClicked]="onKeyBoardClicked"></keyboard>
-			</GridLayout>
-	`,
-	directives:[Keyboard]
+  selector: "calculator",
+  template: `
+      <GridLayout rows="auto,*" columns="*">
+      <!--Dispalyer-->
+      <StackLayout row="0" style="font-size:60;color:#fff;height:120;background-color:rgba(0,0,0,0.8);text-align:right;vertical-align:bottom;">
+        <Label [text]="counter" #displayer></Label>
+      </StackLayout>
+      <!--Keyboard-->
+      <keyboard row="1" [onKeyBoardClicked]="onKeyBoardClicked"></keyboard>
+      </GridLayout>
+  `,
+  directives:[Keyboard]
 })
 export class AppComponent implements OnInit{
-	public counter: string = '';
-	@ViewChild('displayer') displayerRef: ElementRef;
-	private displayerView : Label;
+  public counter: string = '';
+  @ViewChild('displayer') displayerRef: ElementRef;
+  private displayerView : Label;
 
-	ngOnInit() {
-			this.onKeyBoardClicked = this.onKeyBoardClicked.bind(this);
-	}
+  ngOnInit() {
+      this.onKeyBoardClicked = this.onKeyBoardClicked.bind(this);
+  }
 
-	public onKeyBoardClicked(text:string):void {
-			this.counter += text;        
-	}
+  public onKeyBoardClicked(text:string):void {
+      this.counter += text;        
+  }
 }
 
 ```
 这样我们的Keyboard点击就能实时显示在Disapler上面了。
+这个交互我们完全依赖于Angular2为我们提供的单向绑定。再强调一次，Nativesript支持所有的Angular2功能，这真的会简化我们的开发。
 ![键盘交互](http://upload-images.jianshu.io/upload_images/2362670-a7f152072541c093.gif?imageMogr2/auto-orient/strip)
 ## 原生API
 对比我们的计算器和ios原生计算器，我们发现原生计算器的Displayer会自动调整字体大小，以保证显示的数字完全展示。得益于Nativescript，我们也能通过Javascript调用这套API，实现相同的效果。修改app.comonent.ts如下:
 ```
 //app.component.ts
 import {
-	Component,
-	OnInit,
-	ElementRef,
-	ViewChild,
-	AfterViewInit,
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
 } from "@angular/core";
 import {
-	Label
+  Label
 } from 'ui/label';
 import {
   Keyboard
@@ -555,30 +568,30 @@ import {
 } from 'platform';
 
 @Component({
-	selector: "calculator",
-	template: `
-			<GridLayout rows="auto,*" columns="*">
-			<!--Dispalyer-->
-			<StackLayout row="0" style="font-size:60;color:#fff;height:120;background-color:rgba(0,0,0,0.8);text-align:right;vertical-align:bottom;">
-				<Label [text]="counter" #displayer></Label>
-			</StackLayout>
-			<!--Keyboard-->
-			<keyboard row="1" [onKeyBoardClicked]="onKeyBoardClicked"></keyboard>
-			</GridLayout>
-	`,
-	directives:[Keyboard]
+  selector: "calculator",
+  template: `
+      <GridLayout rows="auto,*" columns="*">
+      <!--Dispalyer-->
+      <StackLayout row="0" style="font-size:60;color:#fff;height:120;background-color:rgba(0,0,0,0.8);text-align:right;vertical-align:bottom;">
+        <Label [text]="counter" #displayer></Label>
+      </StackLayout>
+      <!--Keyboard-->
+      <keyboard row="1" [onKeyBoardClicked]="onKeyBoardClicked"></keyboard>
+      </GridLayout>
+  `,
+  directives:[Keyboard]
 })
 export class AppComponent implements OnInit, AfterViewInit{
-	public counter: string = '';
-	@ViewChild('displayer') displayerRef: ElementRef;
-	private displayerView : Label;
+  public counter: string = '';
+  @ViewChild('displayer') displayerRef: ElementRef;
+  private displayerView : Label;
 
-	ngAfterViewInit() {
-		this.displayerView = <Label> this.displayerRef.nativeElement;
-		this.setIOSLabelAutoFont(this.displayerView);
-	}
+  ngAfterViewInit() {
+    this.displayerView = <Label> this.displayerRef.nativeElement;
+    this.setIOSLabelAutoFont(this.displayerView);
+  }
 
-	private setIOSLabelAutoFont(elem: Label) {
+  private setIOSLabelAutoFont(elem: Label) {
     if(device.os === platformNames.ios){
       elem.ios.numberOfLines = 1;
       elem.ios.minimumFontSize = 20;
@@ -586,16 +599,17 @@ export class AppComponent implements OnInit, AfterViewInit{
     }
   }
 
-	ngOnInit() {
-			this.onKeyBoardClicked = this.onKeyBoardClicked.bind(this);
-	}
+  ngOnInit() {
+      this.onKeyBoardClicked = this.onKeyBoardClicked.bind(this);
+  }
 
-	public onKeyBoardClicked(text:string):void {
-			this.counter += text;        
-	}
+  public onKeyBoardClicked(text:string):void {
+      this.counter += text;        
+  }
 }
 
 ```
+`elem.ios.numberOfLines = 1`, `elem.ios.minimumFontSize = 20`, `elem.ios.adjustsFontSizeToFitWidth = true` 是三个IOS的UILabel原生的api。在Nativescript中，我们可以使用Javascript直接调用他们，Nativescript会帮我们处理好Javascript到原生的映射，包括数据类型的转换，不需要写任我的ObjectiveC代码。
 如此，我们就实现了在文章最开始展示的交互。** 这个交互，在ReactNative中，是无法直接实现的！ **这也是Nativescript相比于ReactNative的强大之处
 
 ## 总结
