@@ -1,4 +1,15 @@
+layout:     post
+title:      使用 NativeScript 和 Angular2 构建跨平台 App
+subtitle:   ""
+date:       2016-06-26
+author:     "周林"
+header-img: "/images/learning-webrtc.jpg"
+tags:
+  - NativeScript
+  - Angular2
+
 ## 前言
+
 “一次构建，多处运行”，跨平台APP带着这股风潮把火烧到了前端，为开发者带来无尽的遐想。现有的流行跨平台框架有以下:
 1. 基于单WebView的开发框架。开发者可以使用现有的最新web技术，开发出单页面web应用。同时利用JSBridge，又能获取原生的API，从而使web应用具有了原生应用的功能。Cordova+IONIC可以说是这个潮流的代表，也是跨平台APP的先锋。然而这类跨平台应用的缺点是不流畅，在安卓手机上体验较差。
 2. Hybrid方向。也就是原生应用配合HTML5技术，让APP具有了部分跨平台的功能。Hybrid也是现在各大互联网企业采用较多的跨平台开发方式。这类APP在体验上优于单WebView的APP，并且能够极大提高开发效率。然而这种方式离“一次构建，多处运行”的设想还是有很大距离，毕竟依然需要针对不同的移动平台进行原生开发。
@@ -16,6 +27,7 @@
 3. 第三方原生库**全部**支持
 
 ## 准备
+
 首先需要搭建开发环境，请参考官方的[文档](http://docs.nativescript.org/angular/start/quick-setup)。你可以使用下面的命令来检测Nativescript是否安转完成:
 > tns doctor
 
@@ -95,69 +107,69 @@ export class Keyboard{
 <GridLayout row="1" columns="1*,1*,1*,1*"
    rows="1*,1*,1*,1*,1*">
   <!--第一行-->
-  <StackLayout row="0" col="0"> 
+  <StackLayout row="0" col="0">
     <Label class="keyboard-item gray" text="C"></Label>
   </StackLayout>
-  <StackLayout row="0" col="1"> 
+  <StackLayout row="0" col="1">
     <Label class="keyboard-item gray" text="+/-"></Label>
   </StackLayout>
-  <StackLayout row="0" col="2"> 
+  <StackLayout row="0" col="2">
     <Label class="keyboard-item gray" text="%"></Label>
   </StackLayout>
-  <StackLayout row="0" col="3"> 
+  <StackLayout row="0" col="3">
     <Label class="keyboard-item yellow" text="÷"></Label>
   </StackLayout>
 
   <!--第二行-->
-  <StackLayout row="1" col="0"> 
+  <StackLayout row="1" col="0">
     <Label class="keyboard-item gray" text="7"></Label>
   </StackLayout>
-  <StackLayout row="1" col="1"> 
+  <StackLayout row="1" col="1">
     <Label class="keyboard-item gray" text="8"></Label>
   </StackLayout>
-  <StackLayout row="1" col="2"> 
+  <StackLayout row="1" col="2">
     <Label class="keyboard-item gray" text="9"></Label>
   </StackLayout>
-  <StackLayout row="1" col="3"> 
+  <StackLayout row="1" col="3">
     <Label class="keyboard-item yellow" text="x"></Label>
   </StackLayout>
 
   <!--第三行-->
-  <StackLayout row="2" col="0"> 
+  <StackLayout row="2" col="0">
     <Label class="keyboard-item gray" text="4"></Label>
   </StackLayout>
-  <StackLayout row="2" col="1"> 
+  <StackLayout row="2" col="1">
     <Label class="keyboard-item gray" text="5"></Label>
   </StackLayout>
-  <StackLayout row="2" col="2"> 
+  <StackLayout row="2" col="2">
     <Label class="keyboard-item gray" text="6"></Label>
   </StackLayout>
-  <StackLayout row="2" col="3"> 
+  <StackLayout row="2" col="3">
     <Label class="keyboard-item yellow" text="-"></Label>
   </StackLayout>
 
   <!--第四行-->
-  <StackLayout row="3" col="0"> 
+  <StackLayout row="3" col="0">
     <Label class="keyboard-item gray" text="1"></Label>
   </StackLayout>
-  <StackLayout row="3" col="1"> 
+  <StackLayout row="3" col="1">
     <Label class="keyboard-item gray" text="2"></Label>
   </StackLayout>
-  <StackLayout row="3" col="2"> 
+  <StackLayout row="3" col="2">
     <Label class="keyboard-item gray" text="3"></Label>
   </StackLayout>
-  <StackLayout row="3" col="3"> 
+  <StackLayout row="3" col="3">
     <Label class="keyboard-item yellow" text="+"></Label>
   </StackLayout>
 
   <!--第五行-->
-  <StackLayout row="4" col="0" colSpan="2"> 
+  <StackLayout row="4" col="0" colSpan="2">
     <Label class="keyboard-item gray" text="0"></Label>
   </StackLayout>
-  <StackLayout row="4" col="2"> 
+  <StackLayout row="4" col="2">
     <Label class="keyboard-item gray" text="."></Label>
   </StackLayout>
-  <StackLayout row="4" col="3"> 
+  <StackLayout row="4" col="3">
     <Label class="keyboard-item yellow" text="="></Label>
   </StackLayout>
 
@@ -323,69 +335,69 @@ export class Keyboard{
 <GridLayout row="1" columns="1*,1*,1*,1*"
    rows="1*,1*,1*,1*,1*">
   <!--第一行-->
-  <GridLayout row="0" col="0"> 
+  <GridLayout row="0" col="0">
     <nsbutton text="C"></nsbutton>
   </GridLayout>
-  <GridLayout row="0" col="1"> 
+  <GridLayout row="0" col="1">
     <nsbutton text="+/-"></nsbutton>
   </GridLayout>
-  <GridLayout row="0" col="2"> 
+  <GridLayout row="0" col="2">
     <nsbutton text="%"></nsbutton>
   </GridLayout>
-  <GridLayout row="0" col="3" style="color:#fff;"> 
+  <GridLayout row="0" col="3" style="color:#fff;">
     <nsbutton text="÷" normalBg="#F27F26" activeBg="#B65F1C"></nsbutton>
   </GridLayout>
 
   <!--第二行-->
-  <GridLayout row="1" col="0"> 
+  <GridLayout row="1" col="0">
     <nsbutton text="7"></nsbutton>
   </GridLayout>
-  <GridLayout row="1" col="1"> 
+  <GridLayout row="1" col="1">
     <nsbutton text="8"></nsbutton>
   </GridLayout>
-  <GridLayout row="1" col="2"> 
+  <GridLayout row="1" col="2">
     <nsbutton text="9"></nsbutton>
   </GridLayout>
-  <GridLayout row="1" col="3" style="color:#fff;"> 
+  <GridLayout row="1" col="3" style="color:#fff;">
     <nsbutton text="x" normalBg="#F27F26" activeBg="#B65F1C"></nsbutton>
   </GridLayout>
 
   <!--第三行-->
-  <GridLayout row="2" col="0"> 
+  <GridLayout row="2" col="0">
     <nsbutton text="4"></nsbutton>
   </GridLayout>
-  <GridLayout row="2" col="1"> 
+  <GridLayout row="2" col="1">
     <nsbutton text="5"></nsbutton>
   </GridLayout>
-  <GridLayout row="2" col="2"> 
+  <GridLayout row="2" col="2">
     <nsbutton text="6"></nsbutton>
   </GridLayout>
-  <GridLayout row="2" col="3" style="color:#fff;"> 
+  <GridLayout row="2" col="3" style="color:#fff;">
     <nsbutton text="-" normalBg="#F27F26" activeBg="#B65F1C"></nsbutton>
   </GridLayout>
 
   <!--第四行-->
-  <GridLayout row="3" col="0"> 
+  <GridLayout row="3" col="0">
     <nsbutton text="1"></nsbutton>
   </GridLayout>
-  <GridLayout row="3" col="1"> 
+  <GridLayout row="3" col="1">
     <nsbutton text="2"></nsbutton>
   </GridLayout>
-  <GridLayout row="3" col="2"> 
+  <GridLayout row="3" col="2">
     <nsbutton text="3"></nsbutton>
   </GridLayout>
-  <GridLayout row="3" col="3" style="color:#fff;"> 
+  <GridLayout row="3" col="3" style="color:#fff;">
     <nsbutton text="+" normalBg="#F27F26" activeBg="#B65F1C"></nsbutton>
   </GridLayout>
 
   <!--第五行-->
-  <GridLayout row="4" col="0" colSpan="2"> 
+  <GridLayout row="4" col="0" colSpan="2">
     <nsbutton text="0"></nsbutton>
   </GridLayout>
-  <GridLayout row="4" col="2"> 
+  <GridLayout row="4" col="2">
     <nsbutton text="."></nsbutton>
   </GridLayout>
-  <GridLayout row="4" col="3" style="color:#fff;"> 
+  <GridLayout row="4" col="3" style="color:#fff;">
     <nsbutton text="=" normalBg="#F27F26" activeBg="#B65F1C"></nsbutton>
   </GridLayout>
 
@@ -537,7 +549,7 @@ export class AppComponent implements OnInit{
   }
 
   public onKeyBoardClicked(text:string):void {
-      this.counter += text;        
+      this.counter += text;
   }
 }
 
@@ -604,7 +616,7 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   public onKeyBoardClicked(text:string):void {
-      this.counter += text;        
+      this.counter += text;
   }
 }
 
