@@ -27,7 +27,7 @@ tags:
 和 ReactNative 相比，NativeScript 最大的特点是可以获得100%的原生 API 。也就是说，开发者可以通过 JavaScript 获取和原生开发语言同样多的原生接口。下面，我们通过实现一个简单的计算器，来体会一下 NativeScript 的开发思想。同时，我们能体会到“获取所有原生 API ”带来的巨大好处。
 你可以先在[这里](https://github.com/eeandrew/NSCalculator)看到最终的结果。 **注意输入的数字的字体会随着文本长度逐渐变小，想想这个功能怎么实现。**
 
-![NativeScript计算器](http://upload-images.jianshu.io/upload_images/2362670-71faac7bd658d6ec.gif?imageMogr2/auto-orient/strip)
+![NativeScript计算器](/images/native-script/2362670-71faac7bd658d6ec.gif)
 
 ## Why NativeScript?
 
@@ -65,11 +65,11 @@ NativeScript支持纯 JavaScript，同时也支持 Angular2 。我们选择[Angu
 
 使用[Visual Studio Code](https://code.visualstudio.com/)打开文件，有如下的文件夹结构
 
-![项目结构](http://upload-images.jianshu.io/upload_images/2362670-70acd2fdf50d0528.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![项目结构](/images/native-script/2362670-70acd2fdf50d0528.jpg)
 
 我们的代码将会组织在 app 目录下，所以只需考虑这个文件夹。main.ts 是整个应用的启动文件，我们现在不需要更改它。我们看到 main.ts 里面引入了 app.component 模块，app.component 将会被改造成我们的计算器组件。在改造 app.component.ts 前，我们先考虑一下如何将计算器拆分成一个个组件。
 
-![计算器拆分](http://upload-images.jianshu.io/upload_images/2362670-380357d832216c1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![计算器拆分](/images/native-script/2362670-380357d832216c1f.png)
 
 首先从功能上对计算器进行拆分。计算器由 Displayer 和 Keyboard 两个部分，Keyboard 由 Button 组成。基于此，我们在 app 目录下新增三个文件夹：Displayer，Keyboard，NSButton。
 
@@ -111,7 +111,7 @@ export class AppComponent {
 
 和 `tns run ios`命令不同，这个命令会监视你的文件变化并自动构建部署新的应用。
 
-![NativeScript布局](http://upload-images.jianshu.io/upload_images/2362670-1645aebdf38d5e23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![NativeScript布局](/images/native-script/2362670-1645aebdf38d5e23.png)
 
 NativeScript 的布局方式和安卓原生的布局方式非常类似。对于计算器，我们的 Displayer 需要一个固定的高度，Keyboard 需要占据全部剩余的空间。因此，Calculator 的第一级布局使用了[GridLayout](http://docs.NativeScript.org/angular/ui/layout-containers)。rows="auto,\*" 表示 Gridlayout 为两行，第一行高度由内容(auto)决定，第二行高度占据全部剩余空间(\*)。columns="\*"表示 Gridlayout 分为一列布局，这一列的宽度占据全部空间。
 我们为 Displayer 选择了 StackLayout 布局，这是因为我们需要把 Label 靠右下角对齐。我们为 Keyboard 选择了 GridLayout 布局，这很好理解，因为我们需要一个5x4的格子用来放置计算器的按钮。
@@ -271,7 +271,7 @@ export class AppComponent {
 
 现在我们的计算器有点样子了：
 
-![Keyboard组件](http://upload-images.jianshu.io/upload_images/2362670-6fcfd906bbabc690.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Keyboard组件](/images/native-script/2362670-6fcfd906bbabc690.jpg)
 
 似乎有点简单。但是请注意，这个界面是完全的**原生界面**，完全由原生组件构成。然而，由于 NativeScript 的支持，我们确可以像开发 web 应用一般轻松的开发原生应用了。
 但是现在的 Keyboard 还不能提供任何功能，Keyboard 不能响应点击事件，也不能把数据传递给 Displayer 。接下来我们就要为 Keyboard 加上这些功能。
@@ -456,7 +456,7 @@ export class Keyboard{
 
 现在，我们的按钮组件就有了一个漂亮的点击动画。
 
-![点击动画](http://upload-images.jianshu.io/upload_images/2362670-cfbe8521450a807a.gif?imageMogr2/auto-orient/strip)
+![点击动画](/images/native-script/2362670-cfbe8521450a807a.gif)
 
 不过 Keyboard 的点击事件还不能通知给 Displayer ，我们接着来增加这个功能，修改 nsbuttom.component.ts, keyboard.component.ts, app.component.ts 如下：
 
@@ -613,7 +613,7 @@ export class AppComponent implements OnInit{
 这样我们的 Keyboard 点击就能实时显示在 Disapler 上面了。
 这个交互我们完全依赖于 Angular2 为我们提供的单向绑定。再强调一次，Nativesript 支持所有的 Angular2 功能，这真的会简化我们的开发。
 
-![键盘交互](http://upload-images.jianshu.io/upload_images/2362670-a7f152072541c093.gif?imageMogr2/auto-orient/strip)
+![键盘交互](/images/native-script/2362670-a7f152072541c093.gif)
 
 ## 原生API
 
