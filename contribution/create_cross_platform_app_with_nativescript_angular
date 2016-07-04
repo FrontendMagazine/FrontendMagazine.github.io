@@ -636,4 +636,5 @@ export class AppComponent implements OnInit, AfterViewInit{
 ## 总结
 得益于 NativeScript 可以访问100%的原生 API , 我们不需要写任何原生代码，就能获得和原生代码一样的能力。这可以说是 NativeScript 相比于其他平台，比如 React Native , 最大的优势。在现阶段，NativeScript 应该是最成熟的，性能最好的跨平台 APP 构建方案，非常适合小团队和个人开发者。
 完整的代码请参考这里：https://github.com/eeandrew/NSCalculator 。
+![image](https://pic2.zhimg.com/4149be5a283ac266b852ef3b4c212dad_b.png)
 
