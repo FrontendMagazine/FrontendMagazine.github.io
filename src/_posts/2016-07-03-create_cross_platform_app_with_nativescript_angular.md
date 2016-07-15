@@ -5,7 +5,6 @@ subtitle:   ""
 date:       2016-07-03
 author:     "周林"
 header-img: "/images/nativescript.jpg"
-disableWechatQrCode: true
 tags:
   - NativeScript
   - Angular
