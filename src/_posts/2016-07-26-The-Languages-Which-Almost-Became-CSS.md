@@ -125,13 +125,16 @@ FOSI 文档直接就用 SGML 写成，这对于熟悉 SGML 变体 HTML 的 Web �
 
 得益于它的简洁，DSSSL 实际上是一种很容易理解的样式语言：
 
+```css
 (element H1
   (make paragraph
 	font-size: 14pt
 	font-weight: 'bold))
+```
 
 同时作为编程语言，你甚至可以定义函数：
 
+```css
 (define (create-heading heading-font-size)
   (make paragraph
 	font-size: heading-font-size
@@ -139,20 +142,25 @@ FOSI 文档直接就用 SGML 写成，这对于熟悉 SGML 变体 HTML 的 Web �
 
 (element h1 (create-heading 24pt))
 (element h2 (create-heading 18pt))
+```
 
 还可以在样式中使用计算，比如定义一个黑白相间的表格：
 
+```css
 (element TR
   (if (= (modulo (child-number) 2)
 	    0)
 	…   ;even-row
 	…)) ;odd-row
+```
 
 最后还有让你嫉妒心爆棚的特性，DSSSL 甚至可以把继承的属性值作为变量，在上面进行计算。
 
+```css
 (element H1
   (make paragraph
 	font-size: (+ 4pt (inherited-font-size))))
+```
 
 不幸的是，DSSSL 同时具备了所有 Scheme 类语言的致命弱点：括号太多了。更糟糕的是，规范最终发布时，认为其*太过复杂*的声音不绝于耳，这让浏览器开发者感到胆怯。DSSSL 标准包含了超过210项独立的样式属性。
 
@@ -204,9 +212,11 @@ CSS 并没有包含父选择符（一种用来定义包含特定子节点的节�
 
 它就是 PSL96，按照当年的命名约定，1996年版的“Presentation Specification Language”，从核心上看，PSL 与 CSS 很像。
 
+```css
 H1 {
   fontSize: 20;
 }
+```
 
 而且它马上变得更有趣了。例如，你不但可以基于元素所设置的尺寸（`Width`）来设置其位置，也可以基于浏览器渲染后的真实尺寸（`Actual Width`）：
 
