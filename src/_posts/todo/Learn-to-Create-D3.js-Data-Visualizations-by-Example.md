@@ -5,11 +5,12 @@
 
 > D3.js is a JavaScript library for manipulating documents based on data. D3 helps you bring data to life using HTML, SVG, and CSS.
 
-> 通过 [D3.js](https://d3js.org/) 开发者可以基于数据操锁文档。基于 D3，你能通过 HTML、SVG 和 CSS 让数据活起来。
+
+> 基于 [D3.js](https://d3js.org/) ，编写 HTML、SVG 和 CSS 就能让你的数据变得生动起来，这是一个基于数据操作 DOM 的 JavaScript 库。
 
 There are only three JavaScript libraries that I would suggest every web developer should learn: jQuery, Underscore and D3. These are libraries that allow you to think about code in new ways: jQuery allows you to write less and do more with the DOM, Underscore (or lodash) gives you functional tools for changing the way you write programs and D3 gives you a rich tool-set for data manipulation and graphics programming. If you’re unfamiliar with D3 please take a moment to look at the impressive gallery of examples to see what can be done with it.
 
-在我看来，每一位 Web 开发者最应该学习的三个 JavaScript 库就是 jQuery、Underscore 和 D3。在学习这三个库的过程里，你能学会从新的角度去思考如何写代码：jQuery 让你知道如何用尽量少的代码，尽可能多地操作 DOM；Underscore （或者称之为 lodash）用函数式的工具改变你写程序的方式；而 D3 给了你大量的操作数据的工具，以及图形化编程的思想。如果你还不了解 D3，请花一些时间看看[它的例子](https://github.com/mbostock/d3/wiki/Gallery)，体会一下 D3 能做到什么。
+在我看来，每一位 Web 开发者最应该学习的三个 JavaScript 库就是 jQuery、Underscore 和 D3。在学习它们的过程中，你将会从新的角度去思考如何写代码：jQuery 让你知道如何用尽量少的代码，尽可能多地操作 DOM；Underscore （或者称之为 lodash）用函数式的工具改变你写程序的方式；而 D3 给了你大量的操作数据的工具，以及图形化编程的思想。如果你还不了解 D3，请花一些时间看看[它的例子](https://github.com/mbostock/d3/wiki/Gallery)，体会一下 D3 能做到什么。
 
 **This aint’ your daddy’s charting library.**
 **这可不是你老爸的图表库。**
