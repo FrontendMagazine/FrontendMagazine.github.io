@@ -10,7 +10,7 @@
     - Gesture
     - React
   ---
-  
+
 ## 关于作者
 周林，[github](https://github.com/eeandrew)，陆金所前端程序员，专注 Hybrid APP 性能优化和新技术探索。欢迎任何形式的提问和讨论。
 
@@ -249,7 +249,7 @@ _onTouchMove(e) {
     return (
       <Gestures onPinch={this.onPinch} onMove={this.onMove} onRotate={this.onRotate} onDoubleTap={this.onDoubleTap} onLongPress={this.onLongPress}>
         <div className="wrapper" >
-          ![](http://upload-images.jianshu.io/upload_images/2362670-f8b44d4b9101e8d6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</img>
+          <img src="http://read.pudn.com/downloads94/sourcecode/graph/texture_mapping/374111/shuzituxiang/len_std.jpg"></img>
         </div>
       </Gestures>
     );
