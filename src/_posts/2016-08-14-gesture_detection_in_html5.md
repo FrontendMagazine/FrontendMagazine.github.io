@@ -5,7 +5,6 @@ subtitle:   ""
 date:       2016-08-13
 author:     "ZhouLin"
 header-img: "/images/gesture_detection.png"
-disableWechatQrCode: true
 tags:
   - Gesture
   - React

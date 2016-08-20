@@ -1,0 +1,14 @@
+{
+  "name": "node-log4js-example",
+  "version": "1.0.0",
+  "description": "examples for node-log4js",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "island205@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "log4js": "^0.6.38"
+  }
+}
