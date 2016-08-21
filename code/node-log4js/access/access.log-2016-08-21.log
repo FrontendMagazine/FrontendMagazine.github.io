@@ -1,3 +1,0 @@
-[2016-08-21 14:33:56.417] [INFO] access - ::1 - - "GET / HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
-[2016-08-21 14:34:04.752] [INFO] access - ::1 - - "GET / HTTP/1.1" 200 18 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
-[2016-08-21 14:34:05.002] [INFO] access - ::1 - - "GET /favicon.ico HTTP/1.1" 404 24 "http://localhost:5000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
