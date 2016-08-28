@@ -1,10 +1,19 @@
-# 使用纯 CSS 实现 500px 照片列表布局
+---
+layout:     post
+title:      使用纯 CSS 实现 500px 照片列表布局
+subtitle:   ""
+date:       2016-08-28
+author:     "谢然"
+header-img: "/images/1dd4f9b31ee066d9dd45bb54bcebc8f7_r.png"
+tags:
+  - CSS
+---
 
 文章很长，因为介绍了如何一步一步进化到最后接近完美的效果的，不想读的同学可以直接跳到最后一个大标题之后看代码、demo 及原理就好，或者也可以直接看下面这个链接的源代码。不过还是建议顺序读下去，因为后面的原理需要前面的内容做为铺垫，主要是在处理边角问题上。
 
 先看下效果，要不然各位可能没动力读下去了，实在是有点长，可以试着 resize 或者 zoom 一下看看动态效果： [Cats](https://xieranmaya.github.io/images/cats/cats.html)
 
-![image](./images/e20db23e05c534678cddee9f4c6f6aca_r.png)
+![image](/images/e20db23e05c534678cddee9f4c6f6aca_r.png)
 
 PS：文中的一些 demo 为了方便展示源代码用了 jsbin，但 jsbin 偶尔抽风会显示不出效果，试着在源代码编辑框里不改变代码意思的情况下编辑一下（比如在最后打一下回车）应该就可以了，或者查看一下你浏览器的翻墙设置，因为里面引入了 Google CDN 上的文件，有可能是因为 js 加载不成功导致的。
 
@@ -45,7 +54,7 @@ PS2：Demo 中用到的所有图片都来自 http://500px.com 网站，图片版
 
 思考完成后可以看看[这个页面](https://xieranmaya.github.io/images/flex-image-dynamic-demo/)对这个布局的动态演示，打开页面，**等图片全部加载完成后** 点击页面顶部的 layout 按钮。
 
-![image](./images/3d3103ebf324bf373a559e8411a2453b_r.png)
+![image](/images/3d3103ebf324bf373a559e8411a2453b_r.png)
 
 Demo 演示了如下的布局方式：先按照相同的高度把图片排列起来，然后按行对每行的图片进行等比放大，放大到当前行的所有图片正好跟容器两边对齐，布局完成。
 
@@ -101,7 +110,7 @@ img {
 
 最终 [demo](http://jsbin.com/tisaluy/1/edit?html,css,js,output)：
 
-![image](./images/1dd4f9b31ee066d9dd45bb54bcebc8f7_r.png)
+![image](/images/1dd4f9b31ee066d9dd45bb54bcebc8f7_r.png)
 
 注意图片都被裁剪了，尤其第一张。
 
@@ -142,7 +151,7 @@ img {
 
 上面布局完整的 [demo](http://jsbin.com/tisaluy/2/edit?html,css,output)。
 
-![image](./images/43512f4cd64854790e900211d3f1e927_r.png)
+![image](/images/43512f4cd64854790e900211d3f1e927_r.png)
 
 看起来跟前一个布局没什么两样，但是现在我们可以在容器内部加上一些额外的标签来显示图片信息了。
 
@@ -225,7 +234,7 @@ section::after {
 
 [Demo](http://jsbin.com/tisaluy/3/edit?html,css,output)，resize 或者 zoom 然后观察最后一行的图片。
 
-![image](./images/943432cbbb5c808186dda426062842bc_r.png)
+![image](/images/943432cbbb5c808186dda426062842bc_r.png)
 
 现在这种布局下最后一行的图片其实总是显示完全且没有拉伸和变形的。
 
@@ -269,7 +278,7 @@ section::after {
 
 我们给图片的父容器设置与图片比例相同的初始大小，然后为它设置 flex-grow: 1; 等待它 grow，最终的效果将与上面种布局是一样的，但可以看到图片在加载过程中布局是没有抖动的：
 
-![image](./images/3150999fed4da86f7883dfa5fd3f5411_r.png)
+![image](/images/3150999fed4da86f7883dfa5fd3f5411_r.png)
 
 到这里，我们总算实现了图片的非等宽布局。[Demo](http://jsbin.com/tisaluy/9/edit?html,css,output)，注意 HTML 模板里计算宽度的表达式。
 
@@ -293,7 +302,7 @@ section::after {
 
 可以看这个 [demo](http://jsbin.com/tomipun/4/edit?html,css,output)，试着拉动一下窗口宽度然后看效果。
 
-![image](./images/aa93b310601459d62173bfda5c8cac5f_r.png)
+![image](/images/aa93b310601459d62173bfda5c8cac5f_r.png)
 
 拉动过程中可以看到，正方形的容器会实时变大，大到一定程度后又变小让每行多出一个正方形容器。 如果只看这一个 demo，可能各位不一定能一下子想到如何实现的，但如果只有一个正方形容器，它的边长总是浏览器宽度的一半，想必很多人都知道的，长宽比固定的容器要怎么实现吧？
 
@@ -337,7 +346,7 @@ section::after {
 
 [Demo](http://jsbin.com/tisaluy/5/edit?html,css,output)：
 
-![image](./images/31b70dd5a2a007eef7aca36bbebdf116_r.png)
+![image](/images/31b70dd5a2a007eef7aca36bbebdf116_r.png)
 
 下一步，我们只需要让所有的容器元素都 grow 就可以了，那么是把所有的元素的 flex-grow 设置为 1 吗?
 
@@ -345,7 +354,7 @@ section::after {
 
 [Demo](http://jsbin.com/tisaluy/6/edit?html,css,output)：
 
-![image](./images/3706e5be75b09ec6b3b3c52f4981e456_r.png)
+![image](/images/3706e5be75b09ec6b3b3c52f4981e456_r.png)
 
 可以看到如果给所有的 flex item 设置 flex-grow: 1; 的话，容器跟图片的比例并不一致（虽然比较接近），这里我将图片宽度设置了为容器的宽度以便观察。
 
@@ -368,7 +377,7 @@ section::after {
 
 [Demo](http://jsbin.com/tisaluy/8/edit?html,css,output)，可以看到，每张图片都被完整展示出来了：
 
-![image](./images/72b1c6981901e4f7c6f21af8d3fb7680_r.png)
+![image](/images/72b1c6981901e4f7c6f21af8d3fb7680_r.png)
 
 至于最后一行怎么处理，前面已经介绍过了，用一个 flex-grow 极大的元素占满剩余空间就可以了。
 
@@ -406,4 +415,3 @@ section::after {
 最后的最后，广告时间：
 
 本人决定创业开办前端培训班，地点杭州，9月20左右开课，费用优惠包住宿，详情请点击我的专栏文章：[下定决心，就是要开前端培训班](https://zhuanlan.zhihu.com/p/22209442)，如果有朋友想学，欢迎介绍。如果没有也希望你能进去点个赞让更多人看到~写文章不易，创业更不易~先行谢过了！
-
