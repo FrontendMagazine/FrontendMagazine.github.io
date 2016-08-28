@@ -243,6 +243,17 @@ authors:
     position: 高级前端开发工程师
     github: eeandrew
     weibo: http://weibo.com/u/1260958294
+  谢然:
+    name: 谢然
+    display_name: 谢然
+    avatar: /images/avatars/xieranmaya.png
+    email: xieranmaya@gmail.com
+    web: 
+    twitter:
+    company: 小米
+    position: 前端开发工程师
+    github: xieranmaya
+    weibo: 
 
 # SNS settings
 RSS: true
