@@ -123,7 +123,7 @@ authors:
     github: huxpro
     weibo:  huxpro
   追客:
-    name: 梁远成
+    name: 追客
     display_name: 追客
     avatar: /images/avatars/drake.png
     email: drakeleung42@gmail.com
@@ -211,7 +211,7 @@ authors:
     github:
     weibo:
   Cycle_Sun:
-    name: Cycle Sun
+    name: Cycle_Sun
     display_name: Cycle Sun
     avatar: /images/avatars/CycleSun.jpg
     email: vista5004@gmail.com
@@ -233,11 +233,11 @@ authors:
     github: LeeChingYin
     weibo: http://weibo.com/leechingyin
   周林:
-    name: ZhouLin
+    name: 周林
     display_name: eeandrew
     avatar: /images/avatars/eeandrew.jpeg
     email: boyzhoulin@sina.com
-    web: 
+    web:
     twitter:
     company: 陆金所
     position: 高级前端开发工程师
@@ -248,12 +248,12 @@ authors:
     display_name: 谢然
     avatar: /images/avatars/xieranmaya.png
     email: xieranmaya@gmail.com
-    web: 
+    web:
     twitter:
     company: 小米
     position: 前端开发工程师
     github: xieranmaya
-    weibo: 
+    weibo:
 
 # SNS settings
 RSS: true
