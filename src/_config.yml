@@ -254,6 +254,17 @@ authors:
     position: 前端开发工程师
     github: xieranmaya
     weibo:
+  Disciple_D:
+    name: 丁健哲
+    display_name: Disciple_D
+    avatar: /images/avatars/discipled.jpg
+    email: disciple.ding@gmail.com
+    web: https://discipled.github.io/
+    twitter:
+    company:
+    position:
+    github: DiscipleD
+    weibo:
 
 # SNS settings
 RSS: true
