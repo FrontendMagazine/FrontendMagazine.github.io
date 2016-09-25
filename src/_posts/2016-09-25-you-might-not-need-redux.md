@@ -1,10 +1,20 @@
-# 【译】也许你不必使用 Redux
+---
+layout:     post
+title:      也许你不必使用 Redux
+subtitle:   ""
+date:       2016-09-25
+author:     "Disciple_D"
+header-img: "/images/header.jpg"
+tags:
+  - React
+  - Redux
+---
 
 > 原文链接：[You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367#.a98d3x6e7)
 
 人们常常在正真需要 Redux 之前，就选择使用它。“如果不使用 Redux，我们的应用无法扩展怎么办？”应用接入 Redux 之后，开发者就开始头疼了。“为什么为了开发一个简单的功能需要创建 3 个文件？”为什么！
 
-![为什么！(配图译者加)](./images/wtf.png)
+![为什么！(配图译者加)](/images/wtf.png)
 
 人们痛苦地抱怨 Redux, React, FP, 不可变数据和一些别的东西，但我理解他们。那些不需要一系列代码来更新应用状态的方法自然比使用 Redux 更为简单。这说的没错，设计上也是如此。
 
@@ -35,11 +45,11 @@ Redux 提供了一种权衡。它要求你：
 
 与之相反，你该看看[理解 React](https://facebook.github.io/react/docs/thinking-in-react.html)。当你有真正的需要或想玩一些新东西的时候，才去尝试 Redux。然而，就像你使用其他强限制的工具一样，谨慎地选择是否使用它。
 
-如果，你觉得用 Redux 的方式编码有压力，那可能意味着你或你的伙伴对此太较真了。Redux 只是你工具箱中的[一件工具] (https://www.youtube.com/watch?v=xsSnOQynTHs)，[一种尝试](https://www.youtube.com/watch?v=uvAXVMwHJXU)。
+如果，你觉得用 Redux 的方式编码有压力，那可能意味着你或你的伙伴对此太较真了。Redux 只是你工具箱中的[一件工具](https://www.youtube.com/watch?v=xsSnOQynTHs)，[一种尝试](https://www.youtube.com/watch?v=uvAXVMwHJXU)。
 
 最后，记住你可以将 Redux 的理念运用到你的应用中，但不使用 Redux。试想一下，一个拥有本地状态的 React 组件：
 
-```JavaScript
+```javascript
 import React, { Component } from 'react';
 
 class Counter extends Component {
@@ -56,7 +66,7 @@ class Counter extends Component {
       value: prevState.value - 1
     }));
   };
-  
+
   render() {
     return (
       <div>
@@ -79,7 +89,7 @@ Redux 提供的权衡是通过增加中间环节来将“发生了什么”和�
 
 比如，我们可以从组件中将 reducer 抽出：
 
-```JavaScript
+```javascript
 import React, { Component } from 'react';
 
 const counter = (state = { value: 0 }, action) => {
@@ -95,7 +105,7 @@ const counter = (state = { value: 0 }, action) => {
 
 class Counter extends Component {
   state = counter(undefined, {});
-  
+
   dispatch(action) {
     this.setState(prevState => counter(prevState, action));
   }
@@ -107,7 +117,7 @@ class Counter extends Component {
   decrement = () => {
     this.dispatch({ type: 'DECREMENT' });
   };
-  
+
   render() {
     return (
       <div>
@@ -129,3 +139,9 @@ Redux 库它本身只是一系列的助手将 reduces “挂载”到全局唯�
 但是，如果你付出了一些，确保你同时也能获得一些回报。
 
 译者：如果你对本文感兴趣，你或许也会对这篇[文章](https://medium.freecodecamp.com/where-do-i-belong-a-guide-to-saving-react-component-data-in-state-store-static-and-this-c49b335e2a00)感兴趣。
+
+-------------------------------------------
+
+*[程序员客栈](https://www.proginn.com/) —— 程序员的经纪人*
+
+<embed src="http://static.video.qq.com/TPout.swf?vid=y0330ihbgi2&auto=0" allowFullScreen="true" quality="high" width="480" height="400" style="width: 100%;" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" />
