@@ -29,7 +29,7 @@ gulp.task('min-style', ['less'], function () {
 })
 
 gulp.task('min-images', function () {
-  return gulp.src('src/images/**/*.{jpg,gif,png}')
+  return gulp.src('src/images/**/*.{jpg,gif,png,JPG}')
     .pipe(imagemin({
       progressive: true
     }))
