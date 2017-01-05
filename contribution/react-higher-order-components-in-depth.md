@@ -1,12 +1,6 @@
 > 原文链接: [React Higher Order Components in depth](https://medium.com/@franleplant/react-higher-order-components-in-depth-cf9032ee6c3e#.g1lnzrw5d)
 *本文已获的原作翻译授权，转自译文时请附上原文链接以及译文链接，未经允许不得随意转载译文*
 
-
-作者：范洪春
-链接：https://zhuanlan.zhihu.com/p/20790752
-来源：知乎
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
 ### 摘要
 
 这篇文章主要面向想要使用 HOC（Higher Order Component，高阶组件） 模式的进阶开发者。如果你是 React 新手，建议你从阅读 [React 的文档](https://facebook.github.io/react/docs/hello-world.html)开始。
