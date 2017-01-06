@@ -265,6 +265,17 @@ authors:
     position:
     github: DiscipleD
     weibo:
+  王文凯:
+    name: 王文凯
+    display_name: wenkai
+    avatar: /images/avatars/wenkai.png
+    email: 593273894@qq.com
+    web: imwenkai.com
+    twitter:
+    company:
+    position: 前端开发工程师
+    github: 593273894
+    weibo:
 
 # SNS settings
 RSS: true
