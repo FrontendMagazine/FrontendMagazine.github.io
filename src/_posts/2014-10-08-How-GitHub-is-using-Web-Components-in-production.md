@@ -1,7 +1,6 @@
 ---
 layout:     post
 title:      "Web Components 在 GitHub 中的应用"
-subtitle:   ""
 date:       2014-10-08
 author:     "寸志"
 header-img: "/images/How-GitHub-is-using-Web-Components-in-production.jpg"

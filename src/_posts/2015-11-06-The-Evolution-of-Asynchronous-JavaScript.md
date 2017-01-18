@@ -3,7 +3,7 @@ layout:     post
 title:      "异步 JavaScript 进化史"
 subtitle:   ""
 date:       2015-11-06
-author:     "橙子 "
+author:     "橙子"
 header-img: "/images/The-Evolution-of-Asynchronous-JavaScript.jpg"
 tags:
     - JavaScript

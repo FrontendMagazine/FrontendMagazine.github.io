@@ -1,7 +1,6 @@
 ---
 layout:     post
 title:      "基于单个 Div 的 CSS 绘图"
-subtitle:   ""
 date:       2014-09-23
 author:     "寸志"
 header-img: "/images/Single-Div-Drawings-with-CSS.jpg"
