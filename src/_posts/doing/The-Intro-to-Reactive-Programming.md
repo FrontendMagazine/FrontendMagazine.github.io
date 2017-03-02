@@ -18,7 +18,7 @@ So you're curious in learning this new thing called Reactive Programming, partic
 
 Learning it is hard, even harder by the lack of good material. When I started, I tried looking for tutorials. I found only a handful of practical guides, but they just scratched the surface and never tackled the challenge of building the whole architecture around it. Library documentations often don't help when you're trying to understand some function. I mean, honestly, look at this:
 
-诚然，如果没有好资料的话，学习 *Reactive Programming* 是一件很艰难的事情。还记得我开始学习他的时候，我不停地找教程。后来我找到了一个很容易上手的实战指南，但是他仅仅涉及了表层的东西，并没有告诉我如何围绕 *Reactive Programming* 来构建整个应用的架构。另外，官方的文档对我的帮助也不是很大，尤其是我想理解某个函数的时候。讲真，看下面的例子你就知道：
+讲真，如果没有好资料的话，学习 *Reactive Programming* 是一件很艰难的事情。还记得刚开始学习的时候，我不停地找教程，后来找到了一个很容易上手的实战指南，但是它仅仅涉及了表面的东西，并没有告诉我如何围绕 *Reactive Programming* 来构建整个应用的架构。另外，官方的文档对我的帮助也不是很大，尤其是我想理解某个函数的时候。看看下面的例子你就知道：
 
 >Rx.Observable.prototype.flatMapLatest(selector, [thisArg])
 
@@ -30,7 +30,7 @@ Learning it is hard, even harder by the lack of good material. When I started, I
 
 I've read two books, one just painted the big picture, while the other dived into how to use the Reactive library. I ended up learning Reactive Programming the hard way: figuring it out while building with it. At my work in Futurice I got to use it in a real project, and had the support of some colleagues when I ran into troubles.
 
-我曾经阅读过两本书，一本讲得很抽象，而另外一本则是教如何使用 Reactive Library。最后，我用了最笨的方法来学习：一边用一边学。我在公司的一个真正的项目中使用了他，在遇到问题的时候得到了我同事们的[帮助](http://blog.futurice.com/top-7-tips-for-rxjava-on-android)。
+我曾经还阅读过两本书，一本讲得很抽象，而另外一本则是教你如何使用 Reactive 相关的库。最后，我用了最笨的方法来学习：边用边学，把他运用到公司一个实际的项目当中，在遇到问题的时候得到了我同事们的[帮助](http://blog.futurice.com/top-7-tips-for-rxjava-on-android)。
 
 The hardest part of the learning journey is thinking in Reactive. It's a lot about letting go of old imperative and stateful habits of typical programming, and forcing your brain to work in a different paradigm. I haven't found any guide on the internet in this aspect, and I think the world deserves a practical tutorial on how to think in Reactive, so that you can get started. Library documentation can light your way after that. I hope this helps you.
 
@@ -41,7 +41,7 @@ The hardest part of the learning journey is thinking in Reactive. It's a lot abo
 
 There are plenty of bad explanations and definitions out there on the internet. Wikipedia is too generic and theoretical as usual. Stackoverflow's canonical answer is obviously not suitable for newcomers. Reactive Manifesto sounds like the kind of thing you show to your project manager or the businessmen at your company. Microsoft's Rx terminology "Rx = Observables + LINQ + Schedulers" is so heavy and Microsoftish that most of us are left confused. Terms like "reactive" and "propagation of change" don't convey anything specifically different to what your typical MV* and favorite language already does. Of course my framework views react to the models. Of course change is propagated. If it wouldn't, nothing would be rendered.
 
-对于什么是 *Reactive Programming*，你会在网上看到很多不好的解释或者定义。Wikipedia 一如既往地万金油和理论化。[Stackoverflow](http://stackoverflow.com/questions/1028250/what-is-functional-reactive-programming)的这个答案又太规范化，不适合初学者。而，[Reactive Manifesto](http://www.reactivemanifesto.org/) 用来忽悠产品经理还是挺不错的。另外，微软的[解释](https://rx.codeplex.com/) `Rx = Observables + LINQ + Schedulers` 看到就觉得好难的样子。其实，像 *reactive* 和 *propagation of change* 等等这些词条和我们平常所见的 MV\* 和常见编程语言一样，没什么特别，都是解决同样的问题。view 要实时响应 model ，也就是当 model 改变时，view 也要做出相应的变化。
+对于什么是 *Reactive Programming*，你会在网上看到很多不好的解释或者定义。Wikipedia 一如既往地万金油和偏理论化。[Stackoverflow](http://stackoverflow.com/questions/1028250/what-is-functional-reactive-programming)的这个答案又太规范化，不适合初学者。而，[Reactive Manifesto](http://www.reactivemanifesto.org/) 看起来像是用来忽悠产品经理。另外，微软的[解释](https://rx.codeplex.com/) `Rx = Observables + LINQ + Schedulers` 又太 Microsoftish ，看到就觉得好难的样子。其实，像 *reactive* 和 *propagation of change* 等等这些词条和我们平常在 MV\* 或者某些编程语言里看到的没有什么不同，都是解决同样的问题。view 要实时响应 model ，也就是当 model 改变时，view 也要做出相应的变化。
 
 So let's cut the bullshit.
 我们还是废话少说。
@@ -52,7 +52,7 @@ So let's cut the bullshit.
 
 In a way, this isn't anything new. Event buses or your typical click events are really an asynchronous event stream, on which you can observe and do some side effects. Reactive is that idea on steroids. You are able to create data streams of anything, not just from click and hover events. Streams are cheap and ubiquitous, anything can be a stream: variables, user inputs, properties, caches, data structures, etc. For example, imagine your Twitter feed would be a data stream in the same fashion that click events are. You can listen to that stream and react accordingly.
 
-也就是说，他并不是什么新东西。*Event buses* 或者 *click events* 这些不就是异步事件流（Async event streams）吗？你可以监听他们，然后做出相应的副作用（side effects）。*Reactive* 其实就是一个 idea，推而广之的话，不仅仅是 `click` 或者 `hover` 事件能够创建 data stream，所有东西都可以当作一个 stream ：比如变量，用户的输入，属性，缓存，数据结构等等。不妨想象一下，你的 twitter feed 其实就是一个 data stream ，同样地 `click` 事件也是。你可以监听他们，然后做出响应。
+也就是说，他并不是什么新东西。*Event buses* 或者 *click events* 这些不就是异步事件流（Async event streams）吗？你可以监听他们，然后做出相应的副作用（side effects）。*Reactive* 其实就是一个 idea ，推而广之的话，不仅仅是 `click` 或者 `hover` 事件能够创建 data stream，所有东西都可以当作一个 stream ：比如变量，用户的输入，属性，缓存，数据结构等等。不妨想象一下，你的 twitter feed 其实就是一个 data stream ，同样地 `click` 事件也是。你可以监听他们，然后做出响应。
 
 On top of that, you are given an amazing toolbox of functions to combine, create and filter any of those streams. That's where the "functional" magic kicks in. A stream can be used as an input to another one. Even multiple streams can be used as inputs to another stream. You can merge two streams. You can filter a stream to get another one that has only those events you are interested in. You can map data values from one stream to another new one.
 
@@ -60,7 +60,7 @@ On top of that, you are given an amazing toolbox of functions to combine, create
 
 If streams are so central to Reactive, let's take a careful look at them, starting with our familiar "clicks on a button" event stream.
 
-如果 stream 对于 *Reactive* 这么重要的话，就让我们来研究研究他。首先，从我们最熟悉的例子开始：「点击一个按钮」 event stream 。
+如果 stream 对于 *Reactive* 这么重要的话，就让我们来研究研究他。首先，从我们最熟悉的例子开始：「点击一个按钮」 。
 
 ![click a button](/images/The-Intro-to-Reactive-Programming/click-a-button.png)
 
@@ -70,7 +70,7 @@ stream 是一序列按时间排序的 **正在发生的事件**（A stream is a 
 
 We capture these emitted events only asynchronously, by defining a function that will execute when a value is emitted, another function when an error is emitted, and another function when 'completed' is emitted. Sometimes these last two can be omitted and you can just focus on defining the function for values. The "listening" to the stream is called subscribing. The functions we are defining are observers. The stream is the subject (or "observable") being observed. This is precisely the Observer Design Pattern.
 
-我们只能**异步地**捕获已经 emit 的事件：当一个值 emit 时调用一个事先定义好的回调函数，同样地当 error 或者 completed 时调用其回调函数。有时候，你可以不用管后面两个函数，你只需要专注于第一个。监听 stream 也就是所谓的 **subscribing** ；回调函数就是所谓的 observers ；而 stream 也就是所谓的 **subject** (observable)。以上其实就是[观察者设计模式](https://en.wikipedia.org/wiki/Observer_pattern)（Observer Desgin Pattern）。
+我们只能**异步地**捕获已经 emit 的事件：当一个值 emit 的时候就调用一个事先定义好的回调函数，同样地，当 error 或者 completed 时调用其对应的回调函数。有时候，你可以不用管后面两个函数，如果只关注值的话。监听 stream 也就是所谓的 **subscribing** ；回调函数就是所谓的 observers ；而 stream 也就是所谓的 **subject** (observable)。以上其实就是[观察者设计模式](https://en.wikipedia.org/wiki/Observer_pattern)（Observer Desgin Pattern）。
 
 An alternative way of drawing that diagram is with ASCII, which we will use in some parts of this tutorial:
 另外，我们也可以使用 ASCII 来描绘我们的 stream 示例图。
@@ -86,11 +86,11 @@ X is an error
 
 Since this feels so familiar already, and I don't want you to get bored, let's do something new: we are going to create new click event streams transformed out of the original click event stream.
 
-想必你对上面的东西都很熟悉吧，那么为了让你不感到无聊，让我们来弄点新的东西：把一个原始的 click event stream 转换成一个新的 click event stream 。
+想必你对上面的东西都很熟悉吧，那么为了让你不感到无聊，让我们来弄点新东西：把一个原始的 click event stream 转换成一个新的 click event stream 。
 
 First, let's make a counter stream that indicates how many times a button was clicked. In common Reactive libraries, each stream has many functions attached to it, such as map, filter, scan, etc. When you call one of these functions, such as clickStream.map(f), it returns a new stream based on the click stream. It does not modify the original click stream in any way. This is a property called immutability, and it goes together with Reactive streams just like pancakes are good with syrup. That allows us to chain functions like clickStream.map(f).scan(g):
 
-首先，让我们创建一个 counter stream ，他表示某个按钮被点击了多少次。在常见的 Reactive library 里面，每个 stream 都有很多函数。比如 `map`，`filter`，`scan` 等等。当你调用其中某个时，比如 `clickStream.map(f)` ，他会返回一个基于 `clickStream` 的**新的 stream** 。他并不改变原来的 `clickStream` ，这就是所谓的 **immutability**(不变性)，他和 *Reactive stream* 的关系就像糖痴豆一样。所以，我们可以链式地调用 stream 的函数像这样  `clickStream.map(f).scan(g)`:
+首先，让我们创建一个 counter stream ，他表示某个按钮被点击了多少次。在常见的 Reactive library 里面，每个 stream 都有很多函数。比如 `map`，`filter`，`scan` 等等。当你调用其中某个时，比如 `clickStream.map(f)` ，他会返回一个基于 `clickStream` 的**新的 stream** 。他并不改变原来的 `clickStream` ，这就是所谓的 **immutability**(不变性)，他和 *Reactive stream* 总是形影不离。这样，我们可以链式地调用 stream 的函数像这样  `clickStream.map(f).scan(g)`:
 
 ```
   clickStream: ---c----c--c----c------c-->
@@ -99,27 +99,28 @@ First, let's make a counter stream that indicates how many times a button was cl
                vvvvvvvvv scan(+) vvvvvvvvv
 counterStream: ---1----2--3----4------5-->
 ```
+
 The map(f) function replaces (into the new stream) each emitted value according to a function f you provide. In our case, we mapped to the number 1 on each click. The scan(g) function aggregates all previous values on the stream, producing `value x = g(accumulated, current)`, where g was simply the add function in this example. Then, counterStream emits the total number of clicks whenever a click happens.
 
-`map(f)` 函数会根据你传递的 `f`，替换掉 `clickStream` 每个 emit 的值，到新的 stream 中。在我们的例子中，我们把每个 click 映射成数字 `1`。`scan(g)` 会合计 stream 的过去的所有的值（例子中的 `g` 其实就是一个简单的 `add` 函数）。接着，无论 click 事件什么时候发生，`counterStream` 都会 emit click 的总次数。
+`map(f)` 函数会根据你传进来的函数 `f`，替换掉 `clickStream` 每个 emit 的值，到新的 stream 中。在我们的例子中，我们把每个 click 映射成数字 `1`。`scan(g)` 会累加 stream 的过去的所有的值（例子中的 `g` 其实就是一个简单的 `add` 函数）。接着，无论 click 事件什么时候发生，`counterStream` 都会 emit 鼠标点击过的总次数。
 
 To show the real power of Reactive, let's just say that you want to have a stream of "double click" events. To make it even more interesting, let's say we want the new stream to consider triple clicks as double clicks, or in general, multiple clicks (two or more). Take a deep breath and imagine how you would do that in a traditional imperative and stateful fashion. I bet it sounds fairly nasty and involves some variables to keep state and some fiddling with time intervals
 
-为了展示 Reactive 的真正实力，我们不妨假设你有一个「double click」event stream 。为了让他更加有趣一些，我们想要的新的 stream 可以是 「triple clicks」或者直接「multiple clicks」吧。那么，请深呼吸一下，想象一下你用传统的 imperative and stateful 编程风格来实现这个效果。我敢打赌，这一定是一件很令人讨厌的事情，并且你还需要定义一些变量去保存状态，以及解决时间间隔问题。
+为了展示 Reactive 的真正实力，我们不妨假设你有一个「double click」event stream 。为了让他更加有趣一些，我们想要的新的 stream 可以是 「triple clicks」或者直接「multiple clicks」。那么，现在请深呼吸一下，想象一下你用传统的 imperative and stateful 编程风格来实现这个效果。我敢打赌，这一定是一件很令人讨厌的事情，并且你还需要定义一些变量去保存状态，以及解决鼠标连续点击的时间间隔问题。
 
 Well, in Reactive it's pretty simple. In fact, the logic is just 4 lines of code. But let's ignore code for now. Thinking in diagrams is the best way to understand and build streams, whether you're a beginner or an expert.
 
-没错，用 Reactive 的话实现的话，是很简单的。实际上，关于逻辑的代码只有 [4 行](http://jsfiddle.net/staltz/4gGgs/27/)。但是，让我们先暂时忽略代码吧。**Thinking in diagrams** (画图思考) 是理解和构建 stream 的最好方法，无论你是初学者还是老手。
+没错，用 Reactive 的话实现的话，是很简单的。实际上，关于逻辑的代码只有 [4 行](http://jsfiddle.net/staltz/4gGgs/27/)。但是，我们暂时先不看代码。**Thinking in diagrams** (画图思考) 是理解和构建 stream 的最好方法，无论你是初学者还是老手。
 
 ![multiple click](/images/The-Intro-to-Reactive-Programming/multiple-click.png)
 
 Grey boxes are functions transforming one stream into another. First we accumulate clicks in lists, whenever 250 milliseconds of "event silence" has happened (that's what `buffer(stream.throttle(250ms))` does, in a nutshell. Don't worry about understanding the details at this point, we are just demoing Reactive for now). The result is a stream of lists, from which we apply map() to map each list to an integer matching the length of that list. Finally, we ignore 1 integers using the filter(x >= 2) function. That's it: 3 operations to produce our intended stream. We can then subscribe ("listen") to it to react accordingly how we wish.
 
-灰色的矩形是把一个 stream 转换成另一个 stream 的函数。我们会每隔 250ms 把所有 click stream 都缓冲在一个数组里面，这是 `buffer(stream.throttle(250ms))` 所要做的事情（如果你现在不了解细节的话不要在意，因为我们现在只是初探一下 *Reactive* 而已）。于是，我们得到的是一个包含多个数组的 stream，接着调用 `map()` 函数，把每个数组都映射成一个整数（数组的长度）。随后，我们调用 `filter(x >= 2)` 来过滤掉那些长度为 `1` 的数组。综上，我们只需要3次操作就能得到我们想要的 stream 。最后，我们调用 `subscribe()` 来监听，响应我们想要做的事情。
+上图中，灰色的矩形是把一个 stream 转换成另一个 stream 的函数。我们会每隔 250ms 把所有 click stream 都缓冲在一个数组里面，这是 `buffer(stream.throttle(250ms))` 所要做的事情（如果你现在不了解细节的话不要在意，因为我们现在只是初探一下 *Reactive* 而已）。于是，我们得到的是一个包含多个数组的 stream，接着调用 `map()` 函数，把每个数组都映射成一个整数（数组的长度）。随后，我们调用 `filter(x >= 2)` 来过滤掉那些长度为 `1` 的数组。综上，我们只需要3次操作就能得到我们想要的 stream 。最后，我们调用 `subscribe()` 来监听，响应我们想要做的事情。
 
 I hope you enjoy the beauty of this approach. This example is just the tip of the iceberg: you can apply the same operations on different kinds of streams, for instance, on a stream of API responses; on the other hand, there are many other functions available.
 
-我希望你能够欣赏这种优美的方法。上面的例子其实只是冰山一角：你可以在不同类型的 stream 中调用相同的 operator (例如，`map`，`filter` 等等）。此外，还有很多有用的函数供你使用。
+我希望你能够欣赏这种很优美的方法。上面的例子其实只是冰山一角：你可以在不同类型的 stream 中调用相同的 operator (例如，`map`，`filter` 等等）。此外，还有很多有用的函数供你使用。
 
 
 ## Why Reactive Programming(RP)
@@ -130,11 +131,11 @@ Reactive Programming 提高了你代码的抽象级别，因此你可以专注�
 
 The benefit is more evident in modern webapps and mobile apps that are highly interactive with a multitude of UI events related to data events. 10 years ago, interaction with web pages was basically about submitting a long form to the backend and performing simple rendering to the frontend. Apps have evolved to be more real-time: modifying a single form field can automatically trigger a save to the backend, "likes" to some content can be reflected in real time to other connected users, and so forth.
 
-RP 的优势在现代的 webapp 和 mobile app 中更加明显，因为他们需要和众多的 UI 事件（与数据事件相关）进行高度的交互。十年前，和 web 页面交互仅仅只是提交一个表单给后台，然后返回重新渲染好页面给前端。而如今的 apps 就需要更加实时（real-time）了：修改一个单独的表单域就会自动保存到后台，比如给某些内容的「点赞」就能够实时地反映给当前在线的其他用户。
+RP 的优势在现代的 webapp 和 mobile app 中更加明显，因为他们需要和众多的 UI 事件（与数据事件相关）进行高度的交互。十年前，和 web 页面交互仅仅只是提交一个表单给后台，然后返回重新渲染好页面给前端。而如今的应用就需要更加实时（real-time）了：修改一个单独的表单域就会自动保存到后台，比如给某些内容的「点赞」就能够实时地反映给当前在线的其他用户。
 
 Apps nowadays have an abundancy of real-time events of every kind that enable a highly interactive experience to the user. We need tools for properly dealing with that, and Reactive Programming is an answer.
 
-为了提高用户体验，现代的 app 都需要大量的实时的事件。我们需要工具来正确地解决这些问题，而 Reactive Programming 正是我们想要的答案。
+为了提高用户体验，现代的应用都需要大量的实时的事件。我们需要工具来正确地解决这些问题，而 Reactive Programming 正是我们想要的答案。
 
 
 ## 实战 Thinking in RP
@@ -145,7 +146,7 @@ Let's dive into the real stuff. A real-world example with a step-by-step guide o
 
 I picked JavaScript and RxJS as the tools for this, for a reason: JavaScript is the most familiar language out there at the moment, and the Rx* library family is widely available for many languages and platforms (.NET, Java, Scala, Clojure, JavaScript, Ruby, Python, C++, Objective-C/Cocoa, Groovy, etc). So whatever your tools are, you can concretely benefit by following this tutorial.
 
-我选择 JavaScript 和 [RxJS](https://github.com/Reactive-Extensions/RxJS) 作为我们的工具，是因为：JavaScript 是如今最流行的语言，并且 [Rx* library family](http://www.reactivex.io/) 已经被大量应用到需要语言和平台中（.NET，Java，Scala，Clojure，JavaScript，Ruby，Phtyhon，C++，Object-C/Cocoa，Groovy 等等）。无论你选择哪个，你都可以从这篇教程中学到东西。
+我选择 JavaScript 和 [RxJS](https://github.com/Reactive-Extensions/RxJS) 作为我们的工具，是因为：JavaScript 是如今最流行的语言，虽然 [Rx* library family](http://www.reactivex.io/) 已经被大量应用到需要的语言和平台中（.NET，Java，Scala，Clojure，JavaScript，Ruby，Phtyhon，C++，Object-C/Cocoa，Groovy 等等）。无论你选择哪个，你都可以从这篇教程中学到东西。
 
 
 ## 实现一个「 Who to follow 」
@@ -172,7 +173,7 @@ We are going to focus on imitating its core features, which are:
 
 We can leave out the other features and buttons because they are minor. And, instead of Twitter, which recently closed its API to the unauthorized public, let's build that UI for following people on Github. There's a Github API for getting users.
 
-我们先不理其他比较小的功能。由于 Twitter 关闭了公用 API ，所以我们就转用 [GitHub 获取用户 API](https://developer.github.com/v3/users/#get-all-users) 吧。
+我们先不理其他比较小的功能。由于 Twitter 关闭了公用 API ，所以我们就转用 [GitHub 获取用户的 API](https://developer.github.com/v3/users/#get-all-users) 。
 
 The complete code for this is ready at http://jsfiddle.net/staltz/8jFJH/48/ in case you want to take a peak already.
 
@@ -182,7 +183,7 @@ The complete code for this is ready at http://jsfiddle.net/staltz/8jFJH/48/ in c
 
 How do you approach this problem with Rx? Well, to start with, (almost) everything can be a stream. That's the Rx mantra. Let's start with the easiest feature: "on startup, load 3 accounts data from the API". There is nothing special here, this is simply about (1) doing a request, (2) getting a response, (3) rendering the response. So let's go ahead and represent our requests as a stream. At first this will feel like overkill, but we need to start from the basics, right?
 
-你怎么用 Rx 解决 API 请求和响应的问题？首先，**(most) everything is a stream** ，这是 施展 Rx 魔法的咒语。现在我们先实现最简单的功能：「在启动时，从 API 中加载用户数据，并显示 3 个推荐」。这里没有什么特别的，就和往常一样：（1）发请求，（2）获取后台的响应，（3）渲染响应。接下来，我们把请求看作一个 stream 。这看起来有点大材小用，但是我们需要从基本的东西开始，不是吗？
+你怎么用 Rx 解决 API 请求和响应的问题？首先记住，**(most) everything is a stream** ，这是 施展 Rx 魔法的咒语。现在我们先实现最简单的功能：「在 App 启动时，从 API 中加载用户数据，并显示 3 个推荐」。这里没有什么特别的，就和往常一样：（1）发请求，（2）获取后台的响应，（3）渲染响应。接下来，我们把请求看作一个 stream 。虽然这看起来有点 overkill，但是我们需要从基本的东西开始，不是吗？
 
 On startup we need to do only one request, so if we model it as a data stream, it will be a stream with only one emitted value. Later, we know we will have many requests happening, but for now, it is just one.
 
@@ -195,11 +196,11 @@ where a is the string 'https://api.github.com/users'
 
 This is a stream of URLs that we want to request. Whenever a request event happens, it tells us two things: when and what. "When" the request should be executed is when the event is emitted. And "what" should be requested is the value emitted: a string containing the URL.
 
-这就是我们想要发请求的 URL stream 。无论该请求事件何时发生，他都会告诉我们两件事：**when and what** 。「 when 」是说当事件 emit 时，请求才被执行。而「 what 」则表示请求的东西是 emit 的值，即是这个 URL string 。
+这就是我们想要发请求的 URL stream 。无论该请求事件何时发生，他都会告诉我们两件事：**when and what** 。「 when 」是说当事件 emit 时，请求才被执行。而「 what 」则表示请求的就是 emit 的值，即是这个 URL 字符串 。
 
 To create such stream with a single value is very simple in Rx*. The official terminology for a stream is "Observable", for the fact that it can be observed, but I find it to be a silly name, so I call it stream.
 
-在 Rx* 中创建一个只有单独一个值的 stream 是很简单的。stream 的官方术语是「 Observable 」，因为他可以被观察（observe)。但是我发现这是一个很蠢的名字，所以我通常都叫他「 stream 」。
+在 Rx* 中创建只有单独一个值的 stream 是很简单的。stream 的官方术语是「 Observable 」，因为他可以被观察（observe)。但是我发现这是一个很蠢的名字，所以我通常都叫他「 stream 」。
 
 ```javscript
 var requestStream = Rx.Observable.just('https://api.github.com/users');
@@ -240,7 +241,7 @@ requestStream.subscribe(function(requestUrl) {
 
 What `Rx.Observable.create()` does is create your own custom stream by explicitly informing each observer (or in other words, a "subscriber") about data events (onNext()) or errors (onError()). What we did was just wrap that jQuery Ajax Promise. Excuse me, does this mean that a Promise is an Observable?
 
-`Rx.Observable.create()` 的作用是：通过指定关于每个事件（`onNext()`, `onError`）的 observer ，显式地创建自定义的 stream 。不难发现，上面我们的工作其实就是封装一个 jQuery Ajax Promise 而已。慢着，这也就是说，**Promise 是一个 Observable(stream)** ？
+`Rx.Observable.create()` 可以自定义我们自己的 stream，通过定义一个 observer（`onNext()`, `onError`）。不难发现，上面我们的工作其实就是封装一个 jQuery Ajax Promise 而已。慢着，这也就是说，**Promise 是一个 Observable(stream)** ？
 
 Yes.
 是的！（这都被你发现了！！）
@@ -355,7 +356,7 @@ var requestStream = refreshClickStream
 
 Because I'm dumb and I don't have automated tests, I just broke one of our previously built features. A request doesn't happen anymore on startup, it happens only when the refresh is clicked. Urgh. I need both behaviors: a request when either a refresh is clicked or the webpage was just opened.
 
-因为我没做自动化测试，所以我弄坏之前已经完成了的功能：在 App 启动时并没有发送我们的请求，只有在点击刷新按钮的时候发送。但是，这两个情景我都想实现。
+因为我没做自动化测试，所以之前的功能在加了新功能之后跑不起来了：在 App 启动时并没有发送我们的请求，只有在点击刷新按钮的时候发送。但是，这两个情景我都想实现。
 
 We know how to make a separate stream for each one of those cases:
 根据我们现在的知识，可以分别为每个情景定义一个 stream ：
@@ -372,7 +373,7 @@ var startupRequestStream = Rx.Observable.just('https://api.github.com/users');
 
 But how can we "merge" these two into one? Well, there's merge(). Explained in the diagram dialect, this is what it does:
 
-但是可以把两个 stream 合并成一个吗？答案是 `merge()` 。用图来解释的话：
+可以把两个 stream 合并成一个吗？答案是 `merge()` 。用图来解释的话：
 
 ```
 stream A: ---a--------e-----o----->
@@ -424,7 +425,7 @@ var requestStream = refreshClickStream
 
 The startWith() function does exactly what you think it does. No matter how your input stream looks like, the output stream resulting of startWith(x) will have x at the beginning. But I'm not DRY enough, I'm repeating the API endpoint string. One way to fix this is by moving the startWith() close to the refreshClickStream, to essentially "emulate" a refresh click on startup.
 
-[startWith](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypestartwithscheduler-args) 顾名思义，不管 input stream 是怎样的，output stream 的开头都会有一个值 `x` ，因为我们设置了 `startWith(x)` 。但是我不是很 [DRY](https://en.wikipedia.org/wiki/Don't_repeat_yourself)(Dont Repeat Youself) ，因为我重复写了 API 两次。如果要 fix 这个问题的话，我们可以为 `refreshClickStream` 设置 `startWith` ，他「模拟」了在启动时点击了刷新按钮：
+[startWith](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypestartwithscheduler-args) 顾名思义，不管 input stream 是怎样的，output stream 的开头都会有一个值 `x` ，因为我们设置了 `startWith(x)` 。但是我没有遵循 [DRY](https://en.wikipedia.org/wiki/Don't_repeat_yourself)(Dont Repeat Youself) ，因为我重复写了 API 两次。如果要 fix 这个问题的话，我们可以为 `refreshClickStream` 设置 `startWith` ，他「模拟」了在应用启动时点击了刷新按钮：
 
 ```javascript
 var requestStream = refreshClickStream.startWith('startup click')
@@ -719,6 +720,6 @@ But Reactive Programming is not just Rx. There is Bacon.js which is intuitive to
 
 Rx works great for event-heavy frontends and apps. But it is not just a client-side thing, it works great also in the backend and close to databases. In fact, RxJava is a key component for enabling server-side concurrency in Netflix's API. Rx is not a framework restricted to one specific type of application or language. It really is a paradigm that you can use when programming any event-driven software.
 
-Rx 的应用场景是 event-heavy 的前端应用。但是，他不仅仅是前端的东西，同时他也能够胜任后台甚至数据库。实际上，RxJava 已经成为 [Netflix 处理后台 API 并发问题的利刃](http://techblog.netflix.com/2013/02/rxjava-netflix-api.html)了。Rx 并不是局限于某种类型的应用或者语言，他是一种范式（paradigm），总之你可以用它来开发 event-driven 的软件。
+Rx 的应用场景是 event-heavy 的前端应用。但是，他不仅仅是前端的东西，同时他也能够胜任后台甚至数据库。实际上，RxJava 已经成为了 [Netflix 处理后台 API 并发问题的利刃](http://techblog.netflix.com/2013/02/rxjava-netflix-api.html)。Rx 并不是局限于某种类型的应用或者语言，他是一种范式（paradigm），总之你可以用它来开发 event-driven 的软件。
 
 **原文链接：[https://gist.github.com/staltz/868e7e9bc2a7b8c1f754](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)**
