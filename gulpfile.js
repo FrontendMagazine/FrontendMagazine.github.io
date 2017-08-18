@@ -6,8 +6,12 @@ var clean = require('gulp-clean')
 var RevAll = require('gulp-rev-all')
 var imagemin = require('gulp-imagemin')
 var qiniu = require('gulp-qiniu')
-var qiniuConfig = require('../../../.qiniu.json')
-var digitaloceanConfig = require('../../../.digitalocean.json')
+try {
+  var qiniuConfig = require('../../../.qiniu.json')
+  var digitaloceanConfig = require('../../../.digitalocean.json')
+} catch(e) {
+  
+}
 var scp = require('gulp-scp2')
 
 gulp.task('less', function () {
