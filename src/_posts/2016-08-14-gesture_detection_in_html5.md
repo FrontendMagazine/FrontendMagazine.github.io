@@ -3,7 +3,7 @@ layout:     post
 title:      HTML5 手势检测原理和实现
 subtitle:   ""
 date:       2016-08-13
-author:     "ZhouLin"
+author:     "周林"
 header-img: "/images/gesture_detection.png"
 tags:
   - Gesture

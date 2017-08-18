@@ -29,7 +29,7 @@
   },
   "scripts": {
     "dev": "gulp clean & gulp watch & cd src; jekyll serve",
-    "build": "gulp clean && gulp build &&  build -s rev",
+    "build": "gulp clean && gulp build && jekyll build -s rev",
     "pub": "gulp qiniu && gulp digitalocean"
   }
 }
