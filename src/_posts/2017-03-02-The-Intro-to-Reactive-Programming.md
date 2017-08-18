@@ -12,6 +12,8 @@ tags:
     - JavaScript
 ---
 
+> 本文译自：[The introduction to Reactive Programming you've been missing](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)
+
 想必你对 *Reactive Programming* 这个新东西很好奇吧，尤其是他的衍生，比如：*Rx*，*Bacon.js*，*RAC* 等等。
 
 讲真，如果没有好资料的话，学习 *Reactive Programming* 是一件很艰难的事情。还记得刚开始学习的时候，我不停地找教程，后来找到了一个很容易上手的实战指南，但是它仅仅涉及了表面的东西，并没有告诉我如何围绕 *Reactive Programming* 来构建整个应用的架构。另外，官方的文档对我的帮助也不是很大，尤其是我想理解某个函数的时候。看看下面的例子你就知道：
