@@ -4,7 +4,7 @@ title:      下一代 Web 应用模型 —— Progressive Web App
 subtitle:   ""
 date:       2017-01-18
 author:     "寸志"
-header-img: "/images/react.png"
+header-img: "/images/pwa.png"
 tags:
   - HTTP/2
   - Server Push

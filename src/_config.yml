@@ -349,7 +349,7 @@ friends: [
   }
 ]
 
-gems: [
+plugins: [
     'jekyll-paginate',
     'jekyll-sitemap'
 ]
